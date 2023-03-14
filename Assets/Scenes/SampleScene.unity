@@ -266,6 +266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 10
   duration: 0.5
+  localMoveDistance: 0.2
   curve:
     serializedVersion: 2
     m_Curve:
@@ -313,17 +314,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 56b99390899d91742888182f430ac9e2,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 56b99390899d91742888182f430ac9e2,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 56b99390899d91742888182f430ac9e2,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 56b99390899d91742888182f430ac9e2,
         type: 3}
@@ -489,6 +490,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2740944553537326488, guid: 56b99390899d91742888182f430ac9e2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -2740944553537326488, guid: 56b99390899d91742888182f430ac9e2,
         type: 3}
@@ -904,7 +910,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1e-45, y: 9.048e-42, z: 1.02e-43, w: 6.711041e+22}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: -21.555435}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -972,6 +978,10 @@ MonoBehaviour:
   placementIndicator: {fileID: 1539721739}
   arCamera: {fileID: 22732920}
   arRaycastManager: {fileID: 388525034}
+  holdTime: 2
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1 &1071875873
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine;
 public class LookingAt : MonoBehaviour {
     [SerializeField] private float distance;
     [SerializeField] [Min(0)] private float duration;
+    [SerializeField] private float localMoveDistance = 0.2f;
     [SerializeField] private AnimationCurve curve;
     [SerializeField] private LayerMask layerMask;
 
@@ -12,34 +13,35 @@ public class LookingAt : MonoBehaviour {
     private bool _previousRaycastHitted;
     private GameObject _lastObject;
 
-    private readonly Dictionary<GameObject, Info> _originPos = new Dictionary<GameObject, Info>();
+    private readonly Dictionary<GameObject, Info> _originLocalPosDict = new();
 
     private void Update() {
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, distance, layerMask.value)) {
             _currentRaycastHitted = true;
             GameObject currentObject = hit.collider.gameObject;
 
-            if (!_originPos.ContainsKey(currentObject)) {
-                _originPos.Add(currentObject, new Info(currentObject.transform.position, 0, true));
+            if (!_originLocalPosDict.ContainsKey(currentObject)) {
+                _originLocalPosDict.Add(currentObject, new Info(currentObject.transform.localPosition, 0, true));
             }
             
             if (_currentRaycastHitted && !_previousRaycastHitted) {
-                if (!_originPos[currentObject].DirectionIsUp && _originPos[currentObject].TimePassed < duration)
-                    _originPos[currentObject].TimePassed = duration - _originPos[currentObject].TimePassed;
+                if (!_originLocalPosDict[currentObject].DirectionIsUp && _originLocalPosDict[currentObject].TimePassed < duration)
+                    _originLocalPosDict[currentObject].TimePassed = duration - _originLocalPosDict[currentObject].TimePassed;
             }
 
             if (_currentRaycastHitted && _previousRaycastHitted) {
                 if (_lastObject != currentObject) {
-                    if (!_originPos[currentObject].DirectionIsUp && _originPos[currentObject].TimePassed < duration)
-                        _originPos[currentObject].TimePassed = duration - _originPos[currentObject].TimePassed;
+                    if (!_originLocalPosDict[currentObject].DirectionIsUp && _originLocalPosDict[currentObject].TimePassed < duration)
+                        _originLocalPosDict[currentObject].TimePassed = duration - _originLocalPosDict[currentObject].TimePassed;
                     
-                    foreach (Info objectInfo in _originPos.Values) {
+                    foreach (Info objectInfo in _originLocalPosDict.Values) {
                         if (objectInfo.DirectionIsUp && objectInfo.TimePassed < duration)
                             objectInfo.TimePassed = duration - objectInfo.TimePassed;
                     }
                 }
             }
 
+            //TODO: After reactivating object, it can not move up anymore
             MoveOneUp(currentObject);
 
             _lastObject = currentObject;
@@ -48,9 +50,9 @@ public class LookingAt : MonoBehaviour {
             _currentRaycastHitted = false;
             
             if (!_currentRaycastHitted && _previousRaycastHitted) {
-                if (_originPos.ContainsKey(_lastObject))
-                    if (_originPos[_lastObject].DirectionIsUp && _originPos[_lastObject].TimePassed < duration)
-                        _originPos[_lastObject].TimePassed = duration - _originPos[_lastObject].TimePassed;
+                if (_originLocalPosDict.ContainsKey(_lastObject))
+                    if (_originLocalPosDict[_lastObject].DirectionIsUp && _originLocalPosDict[_lastObject].TimePassed < duration)
+                        _originLocalPosDict[_lastObject].TimePassed = duration - _originLocalPosDict[_lastObject].TimePassed;
             }
             MoveAllDown();
             
@@ -60,23 +62,23 @@ public class LookingAt : MonoBehaviour {
     }
 
     private void MoveOneUp(GameObject selectedObject) {
-        foreach (GameObject currentObject in _originPos.Keys) {
+        foreach (GameObject currentObject in _originLocalPosDict.Keys) {
             if (currentObject != selectedObject) {
-                _originPos.TryGetValue(currentObject, out Info currentObjectInfo);
+                _originLocalPosDict.TryGetValue(currentObject, out Info currentObjectInfo);
                 if (currentObjectInfo == null) continue;
                 
                 currentObjectInfo.DirectionIsUp = false;
-                var start = currentObjectInfo.Origin + Vector3.up;
-                var end = currentObjectInfo.Origin;
+                var start = currentObjectInfo.LocalOrigin + localMoveDistance * Vector3.up;
+                var end = currentObjectInfo.LocalOrigin;
 
                 Move(currentObject, start, end, currentObjectInfo);
             } else {
-                _originPos.TryGetValue(selectedObject, out Info selectedObjectInfo);
+                _originLocalPosDict.TryGetValue(selectedObject, out Info selectedObjectInfo);
                 if (selectedObjectInfo == null) continue;
                 
                 selectedObjectInfo.DirectionIsUp = true;
-                var start = selectedObjectInfo.Origin;
-                var end = start + Vector3.up;
+                var start = selectedObjectInfo.LocalOrigin;
+                var end = start + localMoveDistance * Vector3.up;
 
                 Move(selectedObject, start, end, selectedObjectInfo);
             }
@@ -84,40 +86,40 @@ public class LookingAt : MonoBehaviour {
     }
 
     private void MoveAllDown() {
-        foreach (GameObject currentObject in _originPos.Keys) {
-            _originPos.TryGetValue(currentObject, out Info currentObjectInfo);
+        foreach (GameObject currentObject in _originLocalPosDict.Keys) {
+            _originLocalPosDict.TryGetValue(currentObject, out Info currentObjectInfo);
             if (currentObjectInfo == null) continue;
             
             currentObjectInfo.DirectionIsUp = false;
-            var start = currentObjectInfo.Origin + Vector3.up;
-            var end = currentObjectInfo.Origin;
+            var start = currentObjectInfo.LocalOrigin + localMoveDistance * Vector3.up;
+            var end = currentObjectInfo.LocalOrigin;
 
             Move(currentObject, start, end, currentObjectInfo);
         }
     }
 
     private void Move(GameObject selectedObject, Vector3 start, Vector3 end, Info objectInfo) {
-        if (Vector3.Distance(selectedObject.transform.position, start) == 0) {
+        if (Vector3.Distance(selectedObject.transform.localPosition, start) == 0) {
             objectInfo.TimePassed = 0;
         }
-        if (Vector3.Distance(selectedObject.transform.position, end) == 0) {
+        if (Vector3.Distance(selectedObject.transform.localPosition, end) == 0) {
             objectInfo.TimePassed = duration;
         }
         
         objectInfo.TimePassed += Time.deltaTime;
         var s = objectInfo.TimePassed / duration;
 
-        selectedObject.transform.position = Vector3.Lerp(start, end, curve.Evaluate(s));
+        selectedObject.transform.localPosition = Vector3.Lerp(start, end, curve.Evaluate(s));
     }
 
     class Info {
-        public Vector3 Origin { get; set; }
+        public Vector3 LocalOrigin { get; set; }
         public float TimePassed { get; set; }
 
         public bool DirectionIsUp { get; set; }
 
-        public Info(Vector3 origin, float timePassed, bool directionIsUp) {
-            Origin = origin;
+        public Info(Vector3 localOrigin, float timePassed, bool directionIsUp) {
+            LocalOrigin = localOrigin;
             TimePassed = timePassed;
             DirectionIsUp = directionIsUp;
         }
