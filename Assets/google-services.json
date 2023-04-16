@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "71273028855",
+    "firebase_url": "https://ar-interative-map-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "ar-interative-map",
+    "storage_bucket": "ar-interative-map.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71273028855:android:79e4ad35306a960acb87f2",
+        "android_client_info": {
+          "package_name": "com.Lam.ARtest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71273028855-uj6omgo3h42s56af4ibaqa5qlrd1evmq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCW6-5Fs302O5jTTlaq2TaokXDDAIbh044"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71273028855-uj6omgo3h42s56af4ibaqa5qlrd1evmq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
