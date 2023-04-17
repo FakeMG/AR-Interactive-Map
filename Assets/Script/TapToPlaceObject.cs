@@ -16,9 +16,10 @@ public class TapToPlaceObject : MonoBehaviour {
     private bool _placementPoseIsValid;
 
     private float _timeCounter;
-    // private Vector3 _desiredObjectScale;
+    private Vector3 _desiredObjectScale;
 
     private void Start() {
+        _desiredObjectScale = Vector3.zero;
         placementIndicator.SetActive(true);
     }
 
@@ -45,26 +46,24 @@ public class TapToPlaceObject : MonoBehaviour {
             }
         }
         
-        // if (objectToPlace != null) {
-        //     objectToPlace.transform.localScale =
-        //         Vector3.Lerp(objectToPlace.transform.localScale, _desiredObjectScale, Time.deltaTime * animationSpeed);
-        //     if (Vector3.Distance(objectToPlace.transform.localScale, _desiredObjectScale) <= 0.01f) {
-        //         objectToPlace.transform.localScale = _desiredObjectScale;
-        //     }
-        // }
-        //
-        // if (_desiredObjectScale == Vector3.zero) {
-        //     objectToPlace.SetActive(false);
-        // }
+        if (objectToPlace != null) {
+            objectToPlace.transform.localScale =
+                Vector3.Lerp(objectToPlace.transform.localScale, _desiredObjectScale, Time.deltaTime * animationSpeed);
+            if (Vector3.Distance(objectToPlace.transform.localScale, _desiredObjectScale) <= 0.01f) {
+                objectToPlace.transform.localScale = _desiredObjectScale;
+            }
+        }
+
+        objectToPlace.SetActive(objectToPlace.transform.localScale != Vector3.zero);
     }
 
     private bool CanBePlaced() {
-        return !objectToPlace.activeSelf && _placementPoseIsValid;
+        return _desiredObjectScale == Vector3.zero && _placementPoseIsValid;
     }
 
     private bool CanBeDeactivated() {
         var cameraTransform = arCamera.transform;
-        return objectToPlace.activeSelf &&
+        return _desiredObjectScale == Vector3.one &&
                Physics.Raycast(cameraTransform.position, cameraTransform.forward, 10, layerMask.value);
     }
 
@@ -93,7 +92,9 @@ public class TapToPlaceObject : MonoBehaviour {
     }
 
     private void ToggleTargetObject() {
-        objectToPlace.SetActive(!objectToPlace.activeSelf);
+        // objectToPlace.SetActive(!objectToPlace.activeSelf);
+        _desiredObjectScale = objectToPlace.activeSelf ? Vector3.zero : Vector3.one;
+        
         placementIndicator.SetActive(false);
 
         objectToPlace.transform.SetPositionAndRotation(_placementPose.position, _placementPose.rotation);
