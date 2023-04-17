@@ -3,36 +3,59 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
-public class ARTapToPlaceObject : MonoBehaviour {
+public class TapToPlaceObject : MonoBehaviour {
     public GameObject objectToPlace;
     public GameObject placementIndicator;
     public Camera arCamera;
     public ARRaycastManager arRaycastManager;
     public float holdTime = 2;
     [SerializeField] private LayerMask layerMask;
-    
+    [SerializeField] private float animationSpeed = 6f;
+
     private Pose _placementPose;
     private bool _placementPoseIsValid;
 
     private float _timeCounter;
+    // private Vector3 _desiredObjectScale;
+
+    private void Start() {
+        placementIndicator.SetActive(true);
+    }
 
     private void Update() {
         UpdatePlacementPose();
-        UpdatePlacementIndicator();
 
-        if (CanBePlaced() || CanBeDeactivated()) {
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary) {
-                _timeCounter += Time.deltaTime;
-                if (_timeCounter >= holdTime) {
-                    ToggleObject();
-                    _timeCounter = 0;
-                }
-            } else {
+        if (!objectToPlace.activeSelf) {
+            UpdatePlacementIndicator();
+        }
+
+        if (CanBeDeactivated() && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary) {
+            _timeCounter += Time.deltaTime;
+            if (_timeCounter >= holdTime) {
+                ToggleTargetObject();
                 _timeCounter = 0;
             }
         } else {
             _timeCounter = 0;
         }
+        
+        if (CanBePlaced()) {
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) {
+                ToggleTargetObject();
+            }
+        }
+        
+        // if (objectToPlace != null) {
+        //     objectToPlace.transform.localScale =
+        //         Vector3.Lerp(objectToPlace.transform.localScale, _desiredObjectScale, Time.deltaTime * animationSpeed);
+        //     if (Vector3.Distance(objectToPlace.transform.localScale, _desiredObjectScale) <= 0.01f) {
+        //         objectToPlace.transform.localScale = _desiredObjectScale;
+        //     }
+        // }
+        //
+        // if (_desiredObjectScale == Vector3.zero) {
+        //     objectToPlace.SetActive(false);
+        // }
     }
 
     private bool CanBePlaced() {
@@ -69,8 +92,10 @@ public class ARTapToPlaceObject : MonoBehaviour {
         }
     }
 
-    private void ToggleObject() {
+    private void ToggleTargetObject() {
         objectToPlace.SetActive(!objectToPlace.activeSelf);
+        placementIndicator.SetActive(false);
+
         objectToPlace.transform.SetPositionAndRotation(_placementPose.position, _placementPose.rotation);
     }
 }

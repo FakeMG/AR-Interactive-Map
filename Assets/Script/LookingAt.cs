@@ -20,7 +20,7 @@ public class LookingAt : MonoBehaviour {
             GameObject currentObject = hit.collider.gameObject;
             _timer = 0;
             
-            if (Input.GetMouseButtonDown(0)) {
+            if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)) {
                 if (currentObject.TryGetComponent(out ProvinceBehaviour provinceBehaviour)) {
                     if (provinceBehaviour.IsProvinceUp() && !provinceBehaviour.IsLandmarkUp()) {
                         provinceBehaviour.RaiseLandmark();
