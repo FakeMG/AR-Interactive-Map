@@ -92,11 +92,11 @@ public class TapToPlaceObject : MonoBehaviour {
     }
 
     private void ToggleTargetObject() {
-        // objectToPlace.SetActive(!objectToPlace.activeSelf);
-        _desiredObjectScale = objectToPlace.activeSelf ? Vector3.zero : Vector3.one;
-        
         placementIndicator.SetActive(false);
+        _desiredObjectScale = objectToPlace.activeSelf ? Vector3.zero : Vector3.one;
 
+        if (_desiredObjectScale == Vector3.zero) return;
+        
         objectToPlace.transform.SetPositionAndRotation(_placementPose.position, _placementPose.rotation);
     }
 }
