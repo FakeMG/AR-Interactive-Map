@@ -2,11 +2,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class LookingAt : MonoBehaviour {
+public class ProvinceController : MonoBehaviour {
     [SerializeField] private float distance;
     [SerializeField] private LayerMask layerMask;
-
     [SerializeField] private float rayCastInterval = 30f;
+    [SerializeField] private ProvinceDetailBehavior provinceDetailBehavior;
+    
     private float _timer;
     private readonly List<ProvinceBehaviour> _provinceBehaviours = new();
 
@@ -22,17 +23,21 @@ public class LookingAt : MonoBehaviour {
             
             if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)) {
                 if (currentObject.TryGetComponent(out ProvinceBehaviour provinceBehaviour)) {
-                    if (provinceBehaviour.IsProvinceUp() && !provinceBehaviour.IsLandmarkUp()) {
-                        provinceBehaviour.RaiseLandmark();
+                    if (provinceBehaviour.IsProvinceUp() && !provinceDetailBehavior.IsLandmarkUp()) {
+                        provinceDetailBehavior.RaiseLandmark();
                         return;
                     }
                     
-                    if (provinceBehaviour.IsProvinceUp() && provinceBehaviour.IsLandmarkUp()) {
+                    if (provinceBehaviour.IsProvinceUp() && provinceDetailBehavior.IsLandmarkUp()) {
                         provinceBehaviour.LowerProvince();
+                        provinceDetailBehavior.LowerAll();
                         return;
                     }
                     
                     provinceBehaviour.RaiseProvince();
+                    provinceDetailBehavior.SetXAndZ(provinceBehaviour.transform.position);
+                    provinceDetailBehavior.RaiseProvinceInfo();
+                    
                     foreach (ProvinceBehaviour province in _provinceBehaviours) {
                         if (province != provinceBehaviour) {
                             province.LowerProvince();
