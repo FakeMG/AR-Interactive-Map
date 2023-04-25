@@ -1,8 +1,8 @@
-﻿using Firebase.Database;
+﻿using System.Text;
+using Firebase.Database;
 using Firebase.Extensions;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class ProvinceInfoLoader : MonoBehaviour {
     [SerializeField] private TextMeshPro displayName;
@@ -13,22 +13,25 @@ public class ProvinceInfoLoader : MonoBehaviour {
         _provinceName = transform.parent.name;
         displayName.text = _provinceName;
         description.text = "";
-        
-        RetrieveProvinceData(_provinceName);
     }
     
-    private void RetrieveProvinceData(string provinceName) {
+    public void RetrieveProvinceData(string provinceName) {
+        displayName.text = provinceName;
+        
         FirebaseDatabase.DefaultInstance
             .GetReference("provinces").Child(provinceName)
             .GetValueAsync().ContinueWithOnMainThread(task => {
                 if (task.IsFaulted) {
-                    Debug.LogError(_provinceName + ": " + task.Exception);
+                    Debug.LogError(provinceName + ": " + task.Exception);
                 } else if (task.IsCompleted) {
                     DataSnapshot snapshot = task.Result;
+                    description.text = "";
                     
                     foreach (DataSnapshot provincesSnapshot in snapshot.Children) {
-                        if (description != null) {
-                            description.text += "- " + provincesSnapshot.Key + ": " + provincesSnapshot.Value + "\n";
+                        if (!ReferenceEquals(description, null)) {
+                            StringBuilder sb = new StringBuilder(description.text);
+                            sb.AppendLine("- " + provincesSnapshot.Key + ": " + provincesSnapshot.Value);
+                            description.text = sb.ToString();
                         } else {
                             Debug.Log("ProvinceInfoText is null");
                             return;
