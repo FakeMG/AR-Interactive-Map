@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 
 public class ProvinceDetailBehavior : MonoBehaviour {
-    
     [SerializeField] private float speed = 6f;
-    
+
     private readonly ProvinceInfoLoader[] _provinceInfoLoader = new ProvinceInfoLoader[2];
     private readonly Transform[] _provinceInfo = new Transform[2];
     private Transform _landmarkInfo;
@@ -13,14 +12,15 @@ public class ProvinceDetailBehavior : MonoBehaviour {
 
     private void Start() {
         _desiredSectionInfoScale = new Vector3[2];
+        
         _provinceInfo[0] = transform.GetChild(0);
         _provinceInfo[1] = transform.GetChild(1);
-        _desiredSectionInfoScale[0] = Vector3.one;
+        _landmarkInfo = transform.GetChild(2);
+        
         _provinceInfoLoader[0] = _provinceInfo[0].GetComponent<ProvinceInfoLoader>();
         _provinceInfoLoader[1] = _provinceInfo[1].GetComponent<ProvinceInfoLoader>();
-        _landmarkInfo = transform.GetChild(2);
     }
-    
+
     private void Update() {
         for (int i = 0; i < _provinceInfo.Length; i++) {
             if (_provinceInfo == null) continue;
@@ -38,22 +38,24 @@ public class ProvinceDetailBehavior : MonoBehaviour {
             _landmarkInfo.localScale = _desiredLandmarkInfoScale;
         }
     }
-    
+
     public void RaiseLandmark() {
         _desiredLandmarkInfoScale = Vector3.one;
         for (int i = 0; i < _provinceInfo.Length; i++) {
             _desiredSectionInfoScale[i] = Vector3.zero;
         }
     }
-    
+
     public void RaiseProvinceInfo(string provinceName) {
         _desiredLandmarkInfoScale = Vector3.zero;
-        for (int i = 0; i < _provinceInfo.Length; i++) {
+
+        for (int i = 0; i < _desiredSectionInfoScale.Length; i++) {
             if (_desiredSectionInfoScale[i] == Vector3.zero) {
                 _desiredSectionInfoScale[i] = Vector3.one;
                 _provinceInfoLoader[i].RetrieveProvinceData(provinceName);
-            } else {
-                _desiredSectionInfoScale[i] = Vector3.zero;
+
+                _desiredSectionInfoScale[(i + 1) % 2] = Vector3.zero;
+                break;
             }
         }
     }
@@ -64,7 +66,7 @@ public class ProvinceDetailBehavior : MonoBehaviour {
             _desiredSectionInfoScale[i] = Vector3.zero;
         }
     }
-    
+
     public bool IsLandmarkUp() {
         return _landmarkInfo.localScale == Vector3.one;
     }
