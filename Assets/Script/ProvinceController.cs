@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,6 +7,7 @@ public class ProvinceController : MonoBehaviour {
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private float rayCastInterval = 30f;
     [SerializeField] private ProvinceDetailBehavior provinceDetailBehavior;
+    [SerializeField] private InfoUIBehavior infoUIBehavior;
 
     private readonly List<ProvinceBehaviour> _provinceBehaviours = new();
 
@@ -31,6 +31,8 @@ public class ProvinceController : MonoBehaviour {
         if (_timer >= rayCastInterval) {
             foreach (ProvinceBehaviour province in _provinceBehaviours) {
                 province.LowerProvince();
+                provinceDetailBehavior.LowerAll();
+                infoUIBehavior.LowerAll();
             }
 
             _timer = 0;
@@ -58,12 +60,14 @@ public class ProvinceController : MonoBehaviour {
             if (provinceBehaviour.IsProvinceUp() && provinceDetailBehavior.IsLandmarkUp()) {
                 provinceBehaviour.LowerProvince();
                 provinceDetailBehavior.LowerAll();
+                infoUIBehavior.LowerAll();
                 return;
             }
 
             provinceBehaviour.RaiseProvince();
             provinceDetailBehavior.SetXAndZForClosedProvinceInfo(provinceBehaviour.transform.position);
             provinceDetailBehavior.RaiseProvinceInfo(provinceBehaviour.name);
+            infoUIBehavior.RaiseInfoUI(provinceBehaviour.name);
 
             foreach (ProvinceBehaviour province in _provinceBehaviours) {
                 if (province != provinceBehaviour) {

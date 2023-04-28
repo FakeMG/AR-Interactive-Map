@@ -7,12 +7,10 @@ public class ProvinceDetailBehavior : MonoBehaviour {
     private readonly Transform[] _provinceInfo = new Transform[2];
     private Transform _landmarkInfo;
 
-    private Vector3[] _desiredSectionInfoScale = new Vector3[2];
+    private readonly Vector3[] _desiredSectionInfoScale = new Vector3[2];
     private Vector3 _desiredLandmarkInfoScale;
 
     private void Start() {
-        _desiredSectionInfoScale = new Vector3[2];
-        
         _provinceInfo[0] = transform.GetChild(0);
         _provinceInfo[1] = transform.GetChild(1);
         _landmarkInfo = transform.GetChild(2);

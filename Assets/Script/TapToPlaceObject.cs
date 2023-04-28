@@ -19,7 +19,7 @@ public class TapToPlaceObject : MonoBehaviour {
     private Vector3 _desiredObjectScale;
 
     private void Start() {
-        _desiredObjectScale = Vector3.zero;
+        _desiredObjectScale = Vector3.one;
         placementIndicator.SetActive(true);
     }
 
