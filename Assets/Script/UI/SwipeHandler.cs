@@ -1,13 +1,18 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class SwipeHandler : MonoBehaviour, IDragHandler {
+    [SerializeField] private CanvasScaler canvasScaler;
+    
     private RectTransform _infoUI;
     private float _startPosY;
     private float _targetYPos;
+    private float _canvasMultiplier;
 
     private void Awake() {
         _infoUI = GetComponent<RectTransform>();
+        _canvasMultiplier = Screen.width / canvasScaler.referenceResolution.x;
 
         _startPosY = _infoUI.anchoredPosition.y;
     }
@@ -20,6 +25,10 @@ public class SwipeHandler : MonoBehaviour, IDragHandler {
 
     public void OnDrag(PointerEventData eventData) {
         float deltaY = eventData.position.y - eventData.pressPosition.y;
+        deltaY /= _canvasMultiplier;
+        
+        if (_startPosY + deltaY >= 0) deltaY = -_startPosY;
+        
         var anchoredPosition = _infoUI.anchoredPosition;
         anchoredPosition = new Vector2(anchoredPosition.x, _startPosY + deltaY);
         _infoUI.anchoredPosition = anchoredPosition;
