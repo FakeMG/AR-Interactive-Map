@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 8294828}
   - component: {fileID: 8294830}
   m_Layer: 5
-  m_Name: Top
+  m_Name: Province short info
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -507,7 +507,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1728038503}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.35700607
+  m_Size: 0.35710114
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -729,6 +729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 426549196c0b4e40bb9c4f4e61923d69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasScaler: {fileID: 905947474}
 --- !u!114 &203734943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3158,7 +3159,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 3.4213e-41, y: 2.5e-44, z: 3.4584105e+12, w: 3.2445736}
+  m_BoundingSphereOverride: {x: 9.1835e-41, y: 3.673421e-39, z: 2.6448623e-36, w: 1.147944e-39}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -3388,7 +3389,7 @@ GameObject:
   - component: {fileID: 794569612}
   - component: {fileID: 794569611}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4988,7 +4989,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1968741468}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.3571011
+  m_Size: 0.35710114
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5211,7 +5212,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626913535}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5133083, y: -0.31906527, z: 1.3838573}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5232,7 +5233,7 @@ GameObject:
   - component: {fileID: 1664494313}
   - component: {fileID: 1664494312}
   m_Layer: 5
-  m_Name: Info UI (2)
+  m_Name: Info UI (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5298,6 +5299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 426549196c0b4e40bb9c4f4e61923d69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasScaler: {fileID: 905947474}
 --- !u!114 &1664494314
 MonoBehaviour:
   m_ObjectHideFlags: 0

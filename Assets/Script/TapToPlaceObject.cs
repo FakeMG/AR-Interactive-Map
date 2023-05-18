@@ -25,10 +25,7 @@ public class TapToPlaceObject : MonoBehaviour {
 
     private void Update() {
         UpdatePlacementPose();
-
-        if (!objectToPlace.activeSelf) {
-            UpdatePlacementIndicator();
-        }
+        UpdatePlacementIndicator();
 
         if (CanBeDeactivated() && Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Stationary) {
             _timeCounter += Time.deltaTime;
@@ -39,13 +36,13 @@ public class TapToPlaceObject : MonoBehaviour {
         } else {
             _timeCounter = 0;
         }
-        
+
         if (CanBePlaced()) {
             if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) {
                 ToggleTargetObject();
             }
         }
-        
+
         if (objectToPlace != null) {
             objectToPlace.transform.localScale =
                 Vector3.Lerp(objectToPlace.transform.localScale, _desiredObjectScale, Time.deltaTime * animationSpeed);
@@ -83,20 +80,23 @@ public class TapToPlaceObject : MonoBehaviour {
     }
 
     private void UpdatePlacementIndicator() {
-        if (_placementPoseIsValid) {
-            placementIndicator.SetActive(true);
-            placementIndicator.transform.SetPositionAndRotation(_placementPose.position, _placementPose.rotation);
+        if (!objectToPlace.activeSelf) {
+            if (_placementPoseIsValid) {
+                placementIndicator.SetActive(true);
+                placementIndicator.transform.SetPositionAndRotation(_placementPose.position, _placementPose.rotation);
+            } else {
+                placementIndicator.SetActive(false);
+            }
         } else {
             placementIndicator.SetActive(false);
         }
     }
 
     private void ToggleTargetObject() {
-        placementIndicator.SetActive(false);
         _desiredObjectScale = objectToPlace.activeSelf ? Vector3.zero : Vector3.one;
 
         if (_desiredObjectScale == Vector3.zero) return;
-        
+
         objectToPlace.transform.SetPositionAndRotation(_placementPose.position, _placementPose.rotation);
     }
 }
