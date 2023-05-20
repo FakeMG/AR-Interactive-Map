@@ -1,16 +1,18 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
 public class TapToPlaceObject : MonoBehaviour {
-    public GameObject objectToPlace;
-    public GameObject placementIndicator;
-    public Camera arCamera;
-    public ARRaycastManager arRaycastManager;
-    public float holdTime = 2;
-    [SerializeField] private LayerMask layerMask;
+    [SerializeField] private  GameObject objectToPlace;
+    [SerializeField] private  GameObject placementIndicator;
+    [SerializeField] private  Camera arCamera;
+    [SerializeField] private  ARRaycastManager arRaycastManager;
+    [SerializeField] private  float holdTime = 2;
     [SerializeField] private float animationSpeed = 6f;
+    [SerializeField] private LayerMask layerMask;
+    [SerializeField] private UnityEvent onPlacedObject;
 
     private Pose _placementPose;
     private bool _placementPoseIsValid;
@@ -40,6 +42,7 @@ public class TapToPlaceObject : MonoBehaviour {
         if (CanBePlaced()) {
             if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) {
                 ToggleTargetObject();
+                onPlacedObject?.Invoke();
             }
         }
 

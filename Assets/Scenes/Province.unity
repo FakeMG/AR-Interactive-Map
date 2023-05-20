@@ -636,7 +636,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 417a72ae83bf4c97ade4a954a558930c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
 --- !u!1 &203734938
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,6 +779,7 @@ GameObject:
   - component: {fileID: 257286223}
   - component: {fileID: 257286225}
   - component: {fileID: 257286224}
+  - component: {fileID: 257286226}
   m_Layer: 0
   m_Name: Province Info (1)
   m_TagString: Untagged
@@ -831,6 +831,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf8a388039a683d43b89d52c31b08117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &257286226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257286222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 523154d305d942e392eb6a7dab821e7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 6
 --- !u!114 &265920578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4010,10 +4023,13 @@ MonoBehaviour:
   arCamera: {fileID: 22732920}
   arRaycastManager: {fileID: 388525034}
   holdTime: 2
+  animationSpeed: 6
   layerMask:
     serializedVersion: 2
     m_Bits: 1
-  animationSpeed: 6
+  onPlacedObject:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1041483662 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2024356049062566899, guid: 56b99390899d91742888182f430ac9e2,
@@ -4435,6 +4451,7 @@ GameObject:
   - component: {fileID: 1444539869}
   - component: {fileID: 1444539871}
   - component: {fileID: 1444539870}
+  - component: {fileID: 1444539872}
   m_Layer: 0
   m_Name: Province Info
   m_TagString: Untagged
@@ -4486,6 +4503,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf8a388039a683d43b89d52c31b08117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1444539872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1444539868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 523154d305d942e392eb6a7dab821e7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 6
 --- !u!1 &1447000256
 GameObject:
   m_ObjectHideFlags: 0
@@ -5347,6 +5377,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1675782054}
+  - component: {fileID: 1675782055}
   m_Layer: 0
   m_Name: Landmark Info
   m_TagString: Untagged
@@ -5370,6 +5401,19 @@ Transform:
   m_Father: {fileID: 196441952}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1675782055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675782053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 523154d305d942e392eb6a7dab821e7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 6
 --- !u!1 &1718713160
 GameObject:
   m_ObjectHideFlags: 0

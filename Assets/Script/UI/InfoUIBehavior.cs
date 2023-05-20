@@ -66,7 +66,7 @@ public class InfoUIBehavior : MonoBehaviour {
         for (int i = 0; i < _targetYPos.Length; i++) {
             if (Math.Abs(_targetYPos[i] - _notVisiblePosY) < 0.01f) {
                 _targetYPos[i] = _lowerPosY;
-                // load data
+                //TODO: load data
 
                 _targetYPos[(i + 1) % 2] = _notVisiblePosY;
                 break;

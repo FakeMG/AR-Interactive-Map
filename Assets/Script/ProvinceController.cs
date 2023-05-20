@@ -22,21 +22,7 @@ public class ProvinceController : MonoBehaviour {
     }
 
     private void Update() {
-        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, distance, layerMask.value)) {
-            _timer = 0;
-        } else {
-            _timer += Time.deltaTime;
-        }
-
-        if (_timer >= rayCastInterval) {
-            foreach (ProvinceBehaviour province in _provinceBehaviours) {
-                province.LowerProvince();
-                provinceDetailBehavior.LowerAll();
-                infoUIBehavior.LowerAll();
-            }
-
-            _timer = 0;
-        }
+        LowerProvincesAfterSomeTime();
 
         if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)) {
             if (IsPositionOnUI(Input.mousePosition)) return;
@@ -47,7 +33,7 @@ public class ProvinceController : MonoBehaviour {
             }
 
             Ray ray = _camera.ScreenPointToRay(inputPosition);
-            if (!Physics.Raycast(ray, out hit, distance, layerMask.value)) return;
+            if (!Physics.Raycast(ray, out var hit, distance, layerMask.value)) return;
 
             GameObject currentObject = hit.collider.gameObject;
             if (!currentObject.TryGetComponent(out ProvinceBehaviour provinceBehaviour)) return;
@@ -65,7 +51,7 @@ public class ProvinceController : MonoBehaviour {
             }
 
             provinceBehaviour.RaiseProvince();
-            provinceDetailBehavior.SetXAndZForClosedProvinceInfo(provinceBehaviour.transform.position);
+            provinceDetailBehavior.SetPosForClosedProvinceDetail(provinceBehaviour.transform.position);
             provinceDetailBehavior.RaiseProvinceInfo(provinceBehaviour.name);
             infoUIBehavior.RaiseInfoUI(provinceBehaviour.name);
 
@@ -74,6 +60,24 @@ public class ProvinceController : MonoBehaviour {
                     province.LowerProvince();
                 }
             }
+        }
+    }
+
+    private void LowerProvincesAfterSomeTime() {
+        if (Physics.Raycast(transform.position, transform.forward, distance, layerMask.value)) {
+            _timer = 0;
+        } else {
+            _timer += Time.deltaTime;
+        }
+
+        if (_timer >= rayCastInterval) {
+            foreach (ProvinceBehaviour province in _provinceBehaviours) {
+                province.LowerProvince();
+                provinceDetailBehavior.LowerAll();
+                infoUIBehavior.LowerAll();
+            }
+
+            _timer = 0;
         }
     }
 
