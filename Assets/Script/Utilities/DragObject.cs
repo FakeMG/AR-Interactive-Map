@@ -1,8 +1,6 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.XR.ARFoundation;
-using UnityEngine.XR.ARSubsystems;
 
 public class DragObject : MonoBehaviour {
     [SerializeField] private LayerMask ground;
@@ -10,27 +8,29 @@ public class DragObject : MonoBehaviour {
     [SerializeField] private Transform vietnamModel;
     [SerializeField] private float snapDistance = 0.1f;
     [SerializeField] private float reachDistance = 5f;
-    [SerializeField] private Camera arCamera;
-    [SerializeField] private ARRaycastManager arRaycastManager;
-
+    [SerializeField] private TextMeshProUGUI debugText;
+    
     private Vector3 _posDiff;
     private bool _isDragging;
     private Camera _mainCamera;
     private Transform _selectedObject;
-    private Dictionary<GameObject,Vector3> _originalPositions;
+    private Dictionary<GameObject, Vector3> _originalPositions;
 
     private void Start() {
         _mainCamera = Camera.main;
-        
-        //TODO: remove this later
+
         GetOriginalPos();
     }
 
     private void Update() {
-        if (Input.GetMouseButtonDown(0)) {
-            Vector3 mousePosition = Input.mousePosition;
+        if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)) {
+            
+            Vector3 inputPosition = Input.mousePosition;
+            if (Input.touchCount > 0) {
+                inputPosition = Input.GetTouch(0).position;
+            }
 
-            Ray ray = _mainCamera.ScreenPointToRay(mousePosition);
+            Ray ray = _mainCamera.ScreenPointToRay(inputPosition);
 
             if (Physics.Raycast(ray, out var hit, reachDistance, puzzle)) {
                 if (hit.collider != null) {
@@ -40,7 +40,7 @@ public class DragObject : MonoBehaviour {
             }
         }
 
-        if (Input.GetMouseButtonUp(0)) {
+        if (Input.GetMouseButtonUp(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended)) {
             _isDragging = false;
         }
 
@@ -52,42 +52,32 @@ public class DragObject : MonoBehaviour {
     }
 
     private void DragSelectedObject() {
-        // var cubePosition = _selectedObject.position;
-        // Vector3 mousePosition = Input.mousePosition;
-        //
-        // var screenCenter = arCamera.ViewportToScreenPoint(mousePosition);
-        // var hits = new List<ARRaycastHit>();
-        // arRaycastManager.Raycast(screenCenter, hits, TrackableType.Planes);
-        //
-        // if (hits.Count > 0) {
-        //     Vector3 pos = hits[0].pose.position;
-        //     if (Input.GetMouseButtonDown(0)) {
-        //         _posDiff = pos - cubePosition;
-        //         _posDiff.y = 0;
-        //     }
-        //
-        //     _selectedObject.position = pos - _posDiff;
-        // }
+        Vector3 inputPosition = Input.mousePosition;
+        if (Input.touchCount > 0) {
+            inputPosition = Input.GetTouch(0).position;
+        }
 
-        Vector3 mousePosition = Input.mousePosition;
-        Ray ray = _mainCamera.ScreenPointToRay(mousePosition);
+        Ray ray = _mainCamera.ScreenPointToRay(inputPosition);
         if (Physics.Raycast(ray, out var hit, reachDistance, ground)) {
             Vector3 pos = hit.point;
-            if (Input.GetMouseButtonDown(0)) {
+            if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)) {
                 _posDiff = pos - _selectedObject.position;
                 _posDiff.y = 0;
             }
-
+        
             _selectedObject.position = pos - _posDiff;
         }
     }
 
     private void SnapToPosition() {
         if (_selectedObject == null) return;
-        
+        if (_originalPositions == null) return;
+        debugText.text = "User lifted finger";
         foreach (var pos in _originalPositions) {
             if (Vector3.Distance(_selectedObject.position, pos.Value) < snapDistance) {
                 _selectedObject.position = pos.Value;
+                
+                debugText.text = pos.Key.name + " snapped";
             }
         }
     }

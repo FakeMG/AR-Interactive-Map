@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -13,6 +14,7 @@ public class TapToPlaceObject : MonoBehaviour {
     [SerializeField] private float animationSpeed = 6f;
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private UnityEvent onPlacedObject;
+    [SerializeField] private UnityEvent onFullyScaled;
 
     private Pose _placementPose;
     private bool _placementPoseIsValid;
@@ -21,8 +23,12 @@ public class TapToPlaceObject : MonoBehaviour {
     private Vector3 _desiredObjectScale;
 
     private void Start() {
-        _desiredObjectScale = Vector3.one;
+        //TODO: change to zero later
+        _desiredObjectScale = Vector3.zero;
         placementIndicator.SetActive(true);
+        
+        //TODO: remove this later
+        // StartCoroutine(ModelIsUp());
     }
 
     private void Update() {
@@ -43,6 +49,7 @@ public class TapToPlaceObject : MonoBehaviour {
             if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) {
                 ToggleTargetObject();
                 onPlacedObject?.Invoke();
+                StartCoroutine(ModelIsUp());
             }
         }
 
@@ -101,5 +108,10 @@ public class TapToPlaceObject : MonoBehaviour {
         if (_desiredObjectScale == Vector3.zero) return;
 
         objectToPlace.transform.SetPositionAndRotation(_placementPose.position, _placementPose.rotation);
+    }
+
+    private IEnumerator ModelIsUp() {
+        yield return new WaitUntil(() => objectToPlace.transform.localScale == Vector3.one);
+        onFullyScaled?.Invoke();
     }
 }

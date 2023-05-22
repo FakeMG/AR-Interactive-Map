@@ -10,16 +10,19 @@ public class CheckWin : MonoBehaviour {
 
     private void Start() {
         //TODO: remove this later
-        GetOriginalPos();
+        // GetOriginalPos();
     }
 
     private void Update() {
         if (IsWin()) {
             winUI.ScaleUp();
+        } else {
+            winUI.ScaleDown();
         }
     }
 
     private bool IsWin() {
+        if (_originalPositions == null) return false;
         return _originalPositions.All(item => item.Key.transform.position == item.Value);
     }
     
