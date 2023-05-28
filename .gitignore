@@ -74,11 +74,14 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
+# Unity Package
+/[Aa]ssets/TextMesh Pro*
+
 # Firebase
 /[Aa]ssets/Editor Default Resources*
 /[Aa]ssets/ExternalDependencyManager*
 /[Aa]ssets/Plugins/Android*
 /[Aa]ssets/Plugins/iOS*
 /[Aa]ssets/Plugins/tvOS*
-/[Aa]ssets/TextMesh Pro*
 /[Aa]ssets/Firebase*
+/[Aa]ssets/GeneratedLocalRepo*
