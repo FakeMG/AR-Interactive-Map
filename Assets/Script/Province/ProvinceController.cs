@@ -1,15 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 public class ProvinceController : MonoBehaviour {
     [SerializeField] private float distance;
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private float rayCastInterval = 30f;
-    [SerializeField] private ProvinceDetailBehavior provinceDetailBehavior;
-    [SerializeField] private InfoUIBehavior infoUIBehavior;
+    [FormerlySerializedAs("provinceDetailBehavior")] [SerializeField] private ProvinceDetailRaiser provinceDetailRaiser;
+    [FormerlySerializedAs("infoUIBehavior")] [SerializeField] private InfoUIRaiser infoUIRaiser;
 
-    private readonly List<ProvinceBehaviour> _provinceBehaviours = new();
+    private readonly List<ProvinceRaiser> _provinceBehaviours = new();
 
     private float _timer;
     private Camera _camera;
@@ -17,7 +18,7 @@ public class ProvinceController : MonoBehaviour {
     private void Start() {
         _camera = Camera.main;
 
-        ProvinceBehaviour[] provinceBehaviours = FindObjectsOfType<ProvinceBehaviour>();
+        ProvinceRaiser[] provinceBehaviours = FindObjectsOfType<ProvinceRaiser>();
         _provinceBehaviours.AddRange(provinceBehaviours);
     }
 
@@ -36,27 +37,27 @@ public class ProvinceController : MonoBehaviour {
             if (!Physics.Raycast(ray, out var hit, distance, layerMask.value)) return;
 
             GameObject currentObject = hit.collider.gameObject;
-            if (!currentObject.TryGetComponent(out ProvinceBehaviour provinceBehaviour)) return;
+            if (!currentObject.TryGetComponent(out ProvinceRaiser provinceRaiser)) return;
 
-            if (provinceBehaviour.IsProvinceUp() && !provinceDetailBehavior.IsLandmarkUp()) {
-                provinceDetailBehavior.RaiseLandmark();
+            if (provinceRaiser.IsProvinceUp() && !provinceDetailRaiser.IsLandmarkUp()) {
+                provinceDetailRaiser.RaiseLandmark();
                 return;
             }
 
-            if (provinceBehaviour.IsProvinceUp() && provinceDetailBehavior.IsLandmarkUp()) {
-                provinceBehaviour.LowerProvince();
-                provinceDetailBehavior.LowerAll();
-                infoUIBehavior.LowerAll();
+            if (provinceRaiser.IsProvinceUp() && provinceDetailRaiser.IsLandmarkUp()) {
+                provinceRaiser.LowerProvince();
+                provinceDetailRaiser.LowerAll();
+                infoUIRaiser.LowerAll();
                 return;
             }
 
-            provinceBehaviour.RaiseProvince();
-            provinceDetailBehavior.SetPosForClosedProvinceDetail(provinceBehaviour.transform.position);
-            provinceDetailBehavior.RaiseProvinceInfo(provinceBehaviour.name);
-            infoUIBehavior.RaiseInfoUI(provinceBehaviour.name);
+            provinceRaiser.RaiseProvince();
+            provinceDetailRaiser.SetPosForClosedProvinceDetail(provinceRaiser.transform.position);
+            provinceDetailRaiser.RaiseProvinceInfo(provinceRaiser.name);
+            infoUIRaiser.RaiseInfoUI();
 
-            foreach (ProvinceBehaviour province in _provinceBehaviours) {
-                if (province != provinceBehaviour) {
+            foreach (ProvinceRaiser province in _provinceBehaviours) {
+                if (province != provinceRaiser) {
                     province.LowerProvince();
                 }
             }
@@ -71,10 +72,10 @@ public class ProvinceController : MonoBehaviour {
         }
 
         if (_timer >= rayCastInterval) {
-            foreach (ProvinceBehaviour province in _provinceBehaviours) {
+            foreach (ProvinceRaiser province in _provinceBehaviours) {
                 province.LowerProvince();
-                provinceDetailBehavior.LowerAll();
-                infoUIBehavior.LowerAll();
+                provinceDetailRaiser.LowerAll();
+                infoUIRaiser.LowerAll();
             }
 
             _timer = 0;

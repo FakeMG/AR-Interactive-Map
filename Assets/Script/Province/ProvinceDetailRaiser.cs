@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ProvinceDetailBehavior : MonoBehaviour {
+public class ProvinceDetailRaiser : MonoBehaviour {
     private readonly ProvinceInfoLoader[] _provinceInfoLoader = new ProvinceInfoLoader[2];
     private readonly ScaleObject[] _provinceInfo = new ScaleObject[2];
     private ScaleObject _landmarkInfo;

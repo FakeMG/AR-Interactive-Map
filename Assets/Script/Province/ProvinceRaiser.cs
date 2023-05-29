@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class ProvinceBehaviour : MonoBehaviour {
+public class ProvinceRaiser : MonoBehaviour {
     [SerializeField] private float speed = 6f;
 
     private Vector3 _desiredPosition;

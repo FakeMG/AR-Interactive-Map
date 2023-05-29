@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class InfoUIBehavior : MonoBehaviour {
+public class InfoUIRaiser : MonoBehaviour {
     [SerializeField] private float uiSwipeSpeed = 10f;
     [SerializeField] private RectTransform topSection;
     [SerializeField] private RectTransform canvas;
@@ -62,11 +62,10 @@ public class InfoUIBehavior : MonoBehaviour {
         }
     }
 
-    public void RaiseInfoUI(string provinceName) {
+    public void RaiseInfoUI() {
         for (int i = 0; i < _targetYPos.Length; i++) {
             if (Math.Abs(_targetYPos[i] - _notVisiblePosY) < 0.01f) {
                 _targetYPos[i] = _lowerPosY;
-                //TODO: load data
 
                 _targetYPos[(i + 1) % 2] = _notVisiblePosY;
                 break;
