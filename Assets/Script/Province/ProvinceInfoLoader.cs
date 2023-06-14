@@ -1,12 +1,17 @@
-﻿using System.Text;
+﻿using System.Collections;
+using System.Text;
 using Firebase.Database;
 using Firebase.Extensions;
+using Firebase.Storage;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class ProvinceInfoLoader : MonoBehaviour {
-    [SerializeField] private TextMeshPro displayName;
-    [SerializeField] private TextMeshPro description;
+    [SerializeField] private TextMeshProUGUI displayName;
+    [SerializeField] private TextMeshProUGUI description;
+    [SerializeField] private RawImage image;
 
     private string _provinceName;
     private void Start() {
@@ -17,6 +22,7 @@ public class ProvinceInfoLoader : MonoBehaviour {
     
     public void RetrieveProvinceData(string provinceName) {
         displayName.text = provinceName;
+        DownloadImage(provinceName, image);
         
         FirebaseDatabase.DefaultInstance
             .GetReference("provinces").Child(provinceName)
@@ -39,5 +45,30 @@ public class ProvinceInfoLoader : MonoBehaviour {
                     }
                 }
             });
+    }
+    
+    private void DownloadImage(string imageName, RawImage rawImage) {
+        StorageReference reference = FirebaseStorage.DefaultInstance.GetReference("people icon/" + imageName + ".jpg");
+
+        reference.GetDownloadUrlAsync().ContinueWithOnMainThread(task => {
+            if (!task.IsFaulted && !task.IsCanceled) {
+                StartCoroutine(GetTexture(task.Result.ToString(), rawImage));
+            }
+        });
+    }
+
+    IEnumerator GetTexture(string url, RawImage rawImage) {
+        string encodedUrl = url.Replace(" ", "%20");
+
+        UnityWebRequest request = UnityWebRequestTexture.GetTexture(encodedUrl);
+        yield return request.SendWebRequest();
+
+        if (request.result != UnityWebRequest.Result.Success) {
+            Debug.LogError("Error retrieving texture from: "+ encodedUrl + " " + request.error);
+            yield break;
+        }
+
+        Texture2D texture = DownloadHandlerTexture.GetContent(request);
+        rawImage.texture = texture;
     }
 }

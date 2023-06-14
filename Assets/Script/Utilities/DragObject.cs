@@ -8,7 +8,6 @@ public class DragObject : MonoBehaviour {
     [SerializeField] private Transform vietnamModel;
     [SerializeField] private float snapDistance = 0.1f;
     [SerializeField] private float reachDistance = 5f;
-    [SerializeField] private TextMeshProUGUI debugText;
     
     private Vector3 _posDiff;
     private bool _isDragging;
@@ -72,12 +71,10 @@ public class DragObject : MonoBehaviour {
     private void SnapToPosition() {
         if (_selectedObject == null) return;
         if (_originalPositions == null) return;
-        debugText.text = "User lifted finger";
+        
         foreach (var pos in _originalPositions) {
             if (Vector3.Distance(_selectedObject.position, pos.Value) < snapDistance) {
                 _selectedObject.position = pos.Value;
-                
-                debugText.text = pos.Key.name + " snapped";
             }
         }
     }

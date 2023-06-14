@@ -49,10 +49,10 @@ public class ProvinceDetailRaiser : MonoBehaviour {
     public void SetPosForClosedProvinceDetail(Vector3 position) {
         foreach (var province in _provinceInfo) {
             if (!province.IsUp()) {
-                province.transform.position = new Vector3(position.x, position.y + 0.3f, position.z);
+                province.transform.position = new Vector3(position.x, position.y + 0.7f, position.z);
             }
         }
 
-        _landmarkInfo.transform.position = new Vector3(position.x, position.y + 0.3f, position.z);
+        _landmarkInfo.transform.position = new Vector3(position.x, position.y + 0.7f, position.z);
     }
 }

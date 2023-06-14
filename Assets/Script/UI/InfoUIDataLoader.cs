@@ -33,6 +33,26 @@ namespace Script.UI {
                 });
         }
         
+        public void LoadProvinceData(TextMeshProUGUI peopleName) {
+            title.text = peopleName.text;
+            DownloadImage(peopleName.text, image);
+            
+            FirebaseDatabase.DefaultInstance
+                .GetReference("provinces").Child(peopleName.text).Child("Description")
+                .GetValueAsync().ContinueWithOnMainThread(task => {
+                    if (task.IsFaulted) {
+                        Debug.Log("Error retrieving people data");
+                    } else if (task.IsCompleted) {
+                        DataSnapshot snapshot = task.Result;
+                        
+                        content.text = "";
+                        string data = snapshot.Value.ToString();
+                        data = data.Replace("\\n", "\n");
+                        content.text = data;
+                    }
+                });
+        }
+        
         private void DownloadImage(string imageName, RawImage rawImage) {
             StorageReference reference = FirebaseStorage.DefaultInstance.GetReference("people icon/" + imageName + ".jpg");
 

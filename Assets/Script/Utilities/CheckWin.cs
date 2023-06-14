@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CheckWin : MonoBehaviour {
     [SerializeField] private Transform vietnamModel;
     [SerializeField] private ScaleObject winUI;
+    [SerializeField] private UnityEvent onWin;
     private Dictionary<GameObject, Vector3> _originalPositions;
 
     private void Start() {
@@ -15,9 +17,7 @@ public class CheckWin : MonoBehaviour {
 
     private void Update() {
         if (IsWin()) {
-            winUI.ScaleUp();
-        } else {
-            winUI.ScaleDown();
+            onWin?.Invoke();
         }
     }
 
