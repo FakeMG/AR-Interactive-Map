@@ -15,7 +15,7 @@ namespace Script.UI {
         
         public void LoadPeopleData(TextMeshProUGUI peopleName) {
             title.text = peopleName.text;
-            DownloadImage(peopleName.text, image);
+            DownloadImage("people icon", peopleName.text, image);
             
             FirebaseDatabase.DefaultInstance
                 .GetReference("people").Child(peopleName.text).Child("Description")
@@ -33,12 +33,12 @@ namespace Script.UI {
                 });
         }
         
-        public void LoadProvinceData(TextMeshProUGUI peopleName) {
-            title.text = peopleName.text;
-            DownloadImage(peopleName.text, image);
+        public void LoadProvinceData(string provinceName) {
+            title.text = provinceName;
+            DownloadImage("province icon", provinceName, image);
             
             FirebaseDatabase.DefaultInstance
-                .GetReference("provinces").Child(peopleName.text).Child("Description")
+                .GetReference("provinces").Child(provinceName).Child("Description")
                 .GetValueAsync().ContinueWithOnMainThread(task => {
                     if (task.IsFaulted) {
                         Debug.Log("Error retrieving people data");
@@ -53,8 +53,8 @@ namespace Script.UI {
                 });
         }
         
-        private void DownloadImage(string imageName, RawImage rawImage) {
-            StorageReference reference = FirebaseStorage.DefaultInstance.GetReference("people icon/" + imageName + ".jpg");
+        private void DownloadImage(string path, string imageName, RawImage rawImage) {
+            StorageReference reference = FirebaseStorage.DefaultInstance.GetReference(path+ "/" + imageName + ".jpg");
 
             reference.GetDownloadUrlAsync().ContinueWithOnMainThread(task => {
                 if (!task.IsFaulted && !task.IsCanceled) {

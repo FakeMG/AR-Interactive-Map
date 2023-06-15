@@ -36,7 +36,8 @@ public class ProvinceInfoLoader : MonoBehaviour {
                     foreach (DataSnapshot provincesSnapshot in snapshot.Children) {
                         if (!ReferenceEquals(description, null)) {
                             StringBuilder sb = new StringBuilder(description.text);
-                            sb.AppendLine("- " + provincesSnapshot.Key + ": " + provincesSnapshot.Value);
+                            if (provincesSnapshot.Key != "Description")
+                                sb.AppendLine("- " + provincesSnapshot.Key + ": " + provincesSnapshot.Value);
                             description.text = sb.ToString();
                         } else {
                             Debug.Log("ProvinceInfoText is null");
@@ -48,7 +49,7 @@ public class ProvinceInfoLoader : MonoBehaviour {
     }
     
     private void DownloadImage(string imageName, RawImage rawImage) {
-        StorageReference reference = FirebaseStorage.DefaultInstance.GetReference("people icon/" + imageName + ".jpg");
+        StorageReference reference = FirebaseStorage.DefaultInstance.GetReference("province icon/" + imageName + ".jpg");
 
         reference.GetDownloadUrlAsync().ContinueWithOnMainThread(task => {
             if (!task.IsFaulted && !task.IsCanceled) {

@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using Script.UI;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 
@@ -9,6 +11,8 @@ public class ProvinceController : MonoBehaviour {
     [SerializeField] private float rayCastInterval = 30f;
     [FormerlySerializedAs("provinceDetailBehavior")] [SerializeField] private ProvinceDetailRaiser provinceDetailRaiser;
     [FormerlySerializedAs("infoUIBehavior")] [SerializeField] private InfoUIRaiser infoUIRaiser;
+    [SerializeField] private InfoUIDataLoader infoUIDataLoader;
+    [SerializeField] private InfoUIDataLoader infoUIDataLoader1;
 
     private readonly List<ProvinceRaiser> _provinceBehaviours = new();
 
@@ -23,7 +27,7 @@ public class ProvinceController : MonoBehaviour {
     }
 
     private void Update() {
-        LowerProvincesAfterSomeTime();
+        // LowerProvincesAfterSomeTime();
 
         if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)) {
             if (IsPositionOnUI(Input.mousePosition)) return;
@@ -51,9 +55,12 @@ public class ProvinceController : MonoBehaviour {
                 return;
             }
 
+            //TODO: clean this mess
             provinceRaiser.RaiseProvince();
             provinceDetailRaiser.SetPosForClosedProvinceDetail(provinceRaiser.transform.position);
             provinceDetailRaiser.RaiseProvinceInfo(provinceRaiser.name);
+            infoUIDataLoader.LoadProvinceData(provinceRaiser.name);
+            infoUIDataLoader1.LoadProvinceData(provinceRaiser.name);
             infoUIRaiser.RaiseInfoUI();
 
             foreach (ProvinceRaiser province in _provinceBehaviours) {
