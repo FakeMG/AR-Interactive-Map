@@ -12,6 +12,7 @@ public class PeopleListDataLoader : MonoBehaviour {
     [SerializeField] private GameObject template;
 
     private void Awake() {
+        // Nếu tắt list nhanh quá thì sẽ ko load đc ảnh
         RetrievePeopleName();
     }
 

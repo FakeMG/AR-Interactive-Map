@@ -85,3 +85,7 @@ crashlytics-build.properties
 /[Aa]ssets/Plugins/tvOS*
 /[Aa]ssets/Firebase*
 /[Aa]ssets/GeneratedLocalRepo*
+
+# API Key
+/[Aa]ssets/Script/APIKeys.cs
+/[Aa]ssets/Script/APIKeys.cs.meta
