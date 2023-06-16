@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class InfoUIRaiser : MonoBehaviour {
     [SerializeField] private float uiSwipeSpeed = 10f;
-    [SerializeField] private RectTransform topSection;
+    [FormerlySerializedAs("topSection")] [SerializeField] private RectTransform bottomButtonGroup;
     [SerializeField] private RectTransform canvas;
 
     private float _canvasHeight;
@@ -28,7 +29,8 @@ public class InfoUIRaiser : MonoBehaviour {
     IEnumerator WaitUntilEndOfFrame() {
         yield return new WaitForEndOfFrame();
         _canvasHeight = canvas.rect.height;
-        _lowerPosY = -(_canvasHeight - topSection.rect.height);
+        float handlerHeight = 20;
+        _lowerPosY = -(_canvasHeight - bottomButtonGroup.rect.height - handlerHeight);
         _notVisiblePosY = -_canvasHeight;
 
         _infoUI[0].anchoredPosition = new Vector2(_infoUI[0].anchoredPosition.x, _notVisiblePosY);

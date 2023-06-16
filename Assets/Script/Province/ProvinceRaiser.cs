@@ -5,21 +5,23 @@ public class ProvinceRaiser : MonoBehaviour {
 
     private Vector3 _desiredPosition;
     private Vector3 _originLocalPosition;
+    private Vector3 _upPosition;
 
     private void Start() {
         _originLocalPosition = transform.localPosition;
         _desiredPosition = _originLocalPosition;
+        _upPosition = _originLocalPosition + Vector3.up * 0.2f;
     }
 
     private void Update() {
         transform.localPosition = Vector3.Lerp(transform.localPosition, _desiredPosition, Time.deltaTime * speed);
-        if (Vector3.Distance(transform.localPosition, _desiredPosition) <= 0.01f) {
+        if (Vector3.Distance(transform.localPosition, _desiredPosition) <= 0.0001f) {
             transform.localPosition = _desiredPosition;
         }
     }
 
     public void RaiseProvince() {
-        _desiredPosition = _originLocalPosition + Vector3.up * 0.2f;
+        _desiredPosition = _upPosition;
     }
 
     public void LowerProvince() {
@@ -27,6 +29,6 @@ public class ProvinceRaiser : MonoBehaviour {
     }
 
     public bool IsProvinceUp() {
-        return _desiredPosition == _originLocalPosition + Vector3.up * 0.2f;
+        return _desiredPosition == _upPosition;
     }
 }

@@ -9,7 +9,7 @@ public class ScaleObject : MonoBehaviour {
 
     private void Update() {
         transform.localScale = Vector3.Lerp(transform.localScale, _desiredScale, Time.deltaTime * speed);
-        if (Vector3.Distance(transform.localScale, _desiredScale) <= 0.001f) {
+        if (Vector3.Distance(transform.localScale, _desiredScale) <= 0.0001f) {
             transform.localScale = _desiredScale;
         }
     }

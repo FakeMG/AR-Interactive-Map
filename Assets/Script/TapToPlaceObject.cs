@@ -24,7 +24,7 @@ public class TapToPlaceObject : MonoBehaviour {
 
     private void Start() {
         //TODO: change to zero later
-        _desiredObjectScale = Vector3.one;
+        _desiredObjectScale = Vector3.zero;
         placementIndicator.SetActive(true);
         
         //TODO: remove this later
