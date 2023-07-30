@@ -1,100 +1,102 @@
 using System.Collections.Generic;
-using Script.UI;
+using FakeMG.UI;
+using FakeMG.Utilities;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
 
-public class ProvinceController : MonoBehaviour {
-    [SerializeField] private float distance;
-    [SerializeField] private LayerMask layerMask;
-    [SerializeField] private float rayCastInterval = 30f;
-    [FormerlySerializedAs("provinceDetailBehavior")] [SerializeField] private ProvinceDetailRaiser provinceDetailRaiser;
-    [FormerlySerializedAs("infoUIBehavior")] [SerializeField] private InfoUIRaiser infoUIRaiser;
-    [SerializeField] private InfoUIDataLoader infoUIDataLoader;
-    [SerializeField] private InfoUIDataLoader infoUIDataLoader1;
+namespace FakeMG.Province {
+    public class ProvinceController : MonoBehaviour {
+        [SerializeField] private float distance;
+        [SerializeField] private LayerMask layerMask;
+        [SerializeField] private float rayCastInterval = 30f;
+        [FormerlySerializedAs("provinceDetailBehavior")] [SerializeField] private ProvinceDetailRaiser provinceDetailRaiser;
+        [FormerlySerializedAs("infoUIBehavior")] [SerializeField] private InfoUIRaiser infoUIRaiser;
+        [SerializeField] private InfoUIDataLoader infoUIDataLoader;
+        [SerializeField] private InfoUIDataLoader infoUIDataLoader1;
 
-    private readonly List<ProvinceRaiser> _provinceBehaviours = new();
+        private readonly List<RaiseObject> _provinceRaisers = new();
 
-    private float _timer;
-    private Camera _camera;
+        private float _timer;
+        private Camera _camera;
 
-    private void Start() {
-        _camera = Camera.main;
+        private void Start() {
+            _camera = Camera.main;
 
-        ProvinceRaiser[] provinceBehaviours = FindObjectsOfType<ProvinceRaiser>();
-        _provinceBehaviours.AddRange(provinceBehaviours);
-    }
+            RaiseObject[] provinceBehaviours = FindObjectsOfType<RaiseObject>();
+            _provinceRaisers.AddRange(provinceBehaviours);
+        }
 
-    private void Update() {
-        // LowerProvincesAfterSomeTime();
+        private void Update() {
+            // LowerProvincesAfterSomeTime();
 
-        if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)) {
-            if (IsPositionOnUI(Input.mousePosition)) return;
+            if (Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)) {
+                if (IsPositionOnUI(Input.mousePosition)) return;
 
-            Vector3 inputPosition = Input.mousePosition;
-            if (Input.touchCount > 0) {
-                inputPosition = Input.GetTouch(0).position;
-            }
+                Vector3 inputPosition = Input.mousePosition;
+                if (Input.touchCount > 0) {
+                    inputPosition = Input.GetTouch(0).position;
+                }
 
-            Ray ray = _camera.ScreenPointToRay(inputPosition);
-            if (!Physics.Raycast(ray, out var hit, distance, layerMask.value)) return;
+                Ray ray = _camera.ScreenPointToRay(inputPosition);
+                if (!Physics.Raycast(ray, out var hit, distance, layerMask.value)) return;
 
-            GameObject currentObject = hit.collider.gameObject;
-            if (!currentObject.TryGetComponent(out ProvinceRaiser provinceRaiser)) return;
+                GameObject currentObject = hit.collider.gameObject;
+                if (!currentObject.TryGetComponent(out RaiseObject provinceRaiser)) return;
 
-            if (provinceRaiser.IsProvinceUp() && !provinceDetailRaiser.IsLandmarkUp()) {
-                provinceDetailRaiser.RaiseLandmark();
-                return;
-            }
+                if (provinceRaiser.IsProvinceUp() && !provinceDetailRaiser.IsLandmarkUp()) {
+                    provinceDetailRaiser.RaiseLandmark();
+                    return;
+                }
 
-            if (provinceRaiser.IsProvinceUp() && provinceDetailRaiser.IsLandmarkUp()) {
-                provinceRaiser.LowerProvince();
-                provinceDetailRaiser.LowerAll();
-                infoUIRaiser.LowerAll();
-                return;
-            }
+                if (provinceRaiser.IsProvinceUp() && provinceDetailRaiser.IsLandmarkUp()) {
+                    provinceRaiser.LowerProvince();
+                    provinceDetailRaiser.LowerAll();
+                    infoUIRaiser.LowerAll();
+                    return;
+                }
 
-            //TODO: clean this mess
-            provinceRaiser.RaiseProvince();
-            provinceDetailRaiser.SetPosForClosedProvinceDetail(provinceRaiser.transform.position);
-            provinceDetailRaiser.RaiseProvinceInfo(provinceRaiser.name);
-            infoUIDataLoader.LoadProvinceData(provinceRaiser.name);
-            infoUIDataLoader1.LoadProvinceData(provinceRaiser.name);
-            infoUIRaiser.RaiseInfoUI();
+                //TODO: clean this mess
+                provinceRaiser.RaiseProvince();
+                provinceDetailRaiser.SetPosForClosedProvinceDetail(provinceRaiser.transform.position);
+                provinceDetailRaiser.RaiseProvinceInfo(provinceRaiser.name);
+                infoUIDataLoader.LoadProvinceData(provinceRaiser.name);
+                infoUIDataLoader1.LoadProvinceData(provinceRaiser.name);
+                infoUIRaiser.RaiseInfoUI();
 
-            foreach (ProvinceRaiser province in _provinceBehaviours) {
-                if (province != provinceRaiser) {
-                    province.LowerProvince();
+                foreach (RaiseObject province in _provinceRaisers) {
+                    if (province != provinceRaiser) {
+                        province.LowerProvince();
+                    }
                 }
             }
         }
-    }
 
-    private void LowerProvincesAfterSomeTime() {
-        if (Physics.Raycast(transform.position, transform.forward, distance, layerMask.value)) {
-            _timer = 0;
-        } else {
-            _timer += Time.deltaTime;
-        }
-
-        if (_timer >= rayCastInterval) {
-            foreach (ProvinceRaiser province in _provinceBehaviours) {
-                province.LowerProvince();
-                provinceDetailRaiser.LowerAll();
-                infoUIRaiser.LowerAll();
+        private void LowerProvincesAfterSomeTime() {
+            if (Physics.Raycast(transform.position, transform.forward, distance, layerMask.value)) {
+                _timer = 0;
+            } else {
+                _timer += Time.deltaTime;
             }
 
-            _timer = 0;
-        }
-    }
+            if (_timer >= rayCastInterval) {
+                foreach (RaiseObject province in _provinceRaisers) {
+                    province.LowerProvince();
+                    provinceDetailRaiser.LowerAll();
+                    infoUIRaiser.LowerAll();
+                }
 
-    private bool IsPositionOnUI(Vector3 position) {
-        PointerEventData eventData = new PointerEventData(EventSystem.current) {
-            position = position
-        };
-        List<RaycastResult> results = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(eventData, results);
-        return results.Count > 0;
+                _timer = 0;
+            }
+        }
+
+        private bool IsPositionOnUI(Vector3 position) {
+            PointerEventData eventData = new PointerEventData(EventSystem.current) {
+                position = position
+            };
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(eventData, results);
+            return results.Count > 0;
+        }
     }
 }

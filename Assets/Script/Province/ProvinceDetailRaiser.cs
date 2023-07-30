@@ -1,58 +1,62 @@
-﻿using UnityEngine;
+﻿using FakeMG.Database;
+using FakeMG.Utilities;
+using UnityEngine;
 
-public class ProvinceDetailRaiser : MonoBehaviour {
-    private readonly ProvinceInfoLoader[] _provinceInfoLoader = new ProvinceInfoLoader[2];
-    private readonly ScaleObject[] _provinceInfo = new ScaleObject[2];
-    private ScaleObject _landmarkInfo;
+namespace FakeMG.Province {
+    public class ProvinceDetailRaiser : MonoBehaviour {
+        private readonly ProvinceInfoLoader[] _provinceInfoLoader = new ProvinceInfoLoader[2];
+        private readonly ScaleObject[] _provinceInfo = new ScaleObject[2];
+        private ScaleObject _landmarkInfo;
 
-    private void Start() {
-        _provinceInfo[0] = transform.GetChild(0).GetComponent<ScaleObject>();
-        _provinceInfo[1] = transform.GetChild(1).GetComponent<ScaleObject>();
-        _landmarkInfo = transform.GetChild(2).GetComponent<ScaleObject>();
+        private void Awake() {
+            _provinceInfo[0] = transform.GetChild(0).GetComponent<ScaleObject>();
+            _provinceInfo[1] = transform.GetChild(1).GetComponent<ScaleObject>();
+            _landmarkInfo = transform.GetChild(2).GetComponent<ScaleObject>();
 
-        _provinceInfoLoader[0] = _provinceInfo[0].GetComponent<ProvinceInfoLoader>();
-        _provinceInfoLoader[1] = _provinceInfo[1].GetComponent<ProvinceInfoLoader>();
-    }
-
-    public void RaiseLandmark() {
-        foreach (var provinceInfo in _provinceInfo) {
-            provinceInfo.ScaleDown();
+            _provinceInfoLoader[0] = _provinceInfo[0].GetComponent<ProvinceInfoLoader>();
+            _provinceInfoLoader[1] = _provinceInfo[1].GetComponent<ProvinceInfoLoader>();
         }
 
-        _landmarkInfo.ScaleUp();
-    }
+        public void RaiseLandmark() {
+            foreach (var provinceInfo in _provinceInfo) {
+                provinceInfo.ScaleDown();
+            }
 
-    public void RaiseProvinceInfo(string provinceName) {
-        _landmarkInfo.ScaleDown();
-
-        for (int i = 0; i < _provinceInfo.Length; i++) {
-            if (_provinceInfo[i].IsUp()) continue;
-
-            _provinceInfo[i].ScaleUp();
-            _provinceInfo[(i + 1) % 2].ScaleDown();
-            _provinceInfoLoader[i].RetrieveProvinceData(provinceName);
-            break;
+            _landmarkInfo.ScaleUp();
         }
-    }
 
-    public void LowerAll() {
-        _landmarkInfo.ScaleDown();
-        foreach (var provinceInfo in _provinceInfo) {
-            provinceInfo.ScaleDown();
-        }
-    }
+        public void RaiseProvinceInfo(string provinceName) {
+            _landmarkInfo.ScaleDown();
 
-    public bool IsLandmarkUp() {
-        return _landmarkInfo.IsUp();
-    }
+            for (int i = 0; i < _provinceInfo.Length; i++) {
+                if (_provinceInfo[i].IsUp()) continue;
 
-    public void SetPosForClosedProvinceDetail(Vector3 position) {
-        foreach (var province in _provinceInfo) {
-            if (!province.IsUp()) {
-                province.transform.position = new Vector3(position.x, position.y + 0.7f, position.z);
+                _provinceInfo[i].ScaleUp();
+                _provinceInfo[(i + 1) % 2].ScaleDown();
+                _provinceInfoLoader[i].RetrieveProvinceData(provinceName);
+                break;
             }
         }
 
-        _landmarkInfo.transform.position = new Vector3(position.x, position.y + 0.7f, position.z);
+        public void LowerAll() {
+            _landmarkInfo.ScaleDown();
+            foreach (var provinceInfo in _provinceInfo) {
+                provinceInfo.ScaleDown();
+            }
+        }
+
+        public bool IsLandmarkUp() {
+            return _landmarkInfo.IsUp();
+        }
+
+        public void SetPosForClosedProvinceDetail(Vector3 position) {
+            foreach (var province in _provinceInfo) {
+                if (!province.IsUp()) {
+                    province.transform.position = new Vector3(position.x, position.y + 0.7f, position.z);
+                }
+            }
+
+            _landmarkInfo.transform.position = new Vector3(position.x, position.y + 0.7f, position.z);
+        }
     }
 }

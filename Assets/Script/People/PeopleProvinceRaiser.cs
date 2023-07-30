@@ -1,18 +1,19 @@
 ﻿using System.Collections.Generic;
+using FakeMG.Utilities;
 using Firebase.Database;
 using Firebase.Extensions;
 using TMPro;
 using UnityEngine;
 
-namespace Script.People {
+namespace FakeMG.People {
     public class PeopleProvinceRaiser : MonoBehaviour {
         [SerializeField] GameObject vietnamModel;
         
-        private readonly List<ProvinceRaiser> _provinceBehaviours = new();
+        private readonly List<RaiseObject> _provinceBehaviours = new();
 
-        private void Start() {
+        private void Awake() {
             foreach (Transform province in vietnamModel.transform) {
-                _provinceBehaviours.Add(province.GetComponent<ProvinceRaiser>());
+                _provinceBehaviours.Add(province.GetComponent<RaiseObject>());
             }
         }
 
@@ -25,13 +26,13 @@ namespace Script.People {
                     } else if (task.IsCompleted) {
                         DataSnapshot snapshot = task.Result;
 
-                        foreach (ProvinceRaiser provinceRaiser in _provinceBehaviours) {
+                        foreach (RaiseObject provinceRaiser in _provinceBehaviours) {
                             provinceRaiser.LowerProvince();
                         }
                         
                         foreach (DataSnapshot dataSnapshot in snapshot.Children) {
-                            ProvinceRaiser provinceRaiser = _provinceBehaviours.Find(province => province.gameObject.name == dataSnapshot.Key);
-                            provinceRaiser.RaiseProvince();
+                            RaiseObject raiseObject = _provinceBehaviours.Find(province => province.gameObject.name == dataSnapshot.Key);
+                            raiseObject.RaiseProvince();
                         }
                     }
                 });

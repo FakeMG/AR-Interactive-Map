@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-namespace Script.UI {
+namespace FakeMG.UI {
     public class InfoUIDataLoader : MonoBehaviour {
         [SerializeField] private TextMeshProUGUI content;
         [SerializeField] private TextMeshProUGUI title;
