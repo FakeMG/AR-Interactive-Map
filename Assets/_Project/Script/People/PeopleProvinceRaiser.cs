@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace FakeMG.People {
     public class PeopleProvinceRaiser : MonoBehaviour {
-        [SerializeField] GameObject vietnamModel;
+        [SerializeField] private GameObject vietnamModel;
         
         private readonly List<RaiseObject> _provinceBehaviours = new();
 

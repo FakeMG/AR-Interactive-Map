@@ -4,59 +4,58 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
-[RequireComponent(typeof(ARTrackedImageManager))]
-public class PlaceTrackedImages : MonoBehaviour {
-    // Reference to AR tracked image manager component
-    private ARTrackedImageManager _trackedImagesManager;
+namespace FakeMG {
+    [RequireComponent(typeof(ARTrackedImageManager))]
+    public class PlaceTrackedImages : MonoBehaviour {
+        // Reference to AR tracked image manager component
+        private ARTrackedImageManager _trackedImagesManager;
 
-    // List of prefabs to instantiate - these should be named the same
-    // as their corresponding 2D images in the reference image library 
-    public GameObject[] arPrefabs;
+        // List of prefabs to instantiate - these should be named the same
+        // as their corresponding 2D images in the reference image library 
+        public GameObject[] arPrefabs;
 
-    // Keep dictionary array of created prefabs
-    private readonly Dictionary<string, GameObject> _instantiatedPrefabs = new Dictionary<string, GameObject>();
+        // Keep dictionary array of created prefabs
+        private readonly Dictionary<string, GameObject> _instantiatedPrefabs = new();
 
-    private void Awake() {
-        _trackedImagesManager = GetComponent<ARTrackedImageManager>();
-    }
+        private void Awake() {
+            _trackedImagesManager = GetComponent<ARTrackedImageManager>();
+        }
 
-    private void OnEnable() {
-        _trackedImagesManager.trackedImagesChanged += OnTrackedImagesChanged;
-    }
+        private void OnEnable() {
+            _trackedImagesManager.trackedImagesChanged += OnTrackedImagesChanged;
+        }
 
-    private void OnDisable() {
-        _trackedImagesManager.trackedImagesChanged -= OnTrackedImagesChanged;
-    }
+        private void OnDisable() {
+            _trackedImagesManager.trackedImagesChanged -= OnTrackedImagesChanged;
+        }
 
-    private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs) {
-        foreach (var trackedImage in eventArgs.added) {
-            // Get the name of the reference image
-            var imageName = trackedImage.referenceImage.name;
+        private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs) {
+            foreach (var trackedImage in eventArgs.added) {
+                // Get the name of the reference image
+                var imageName = trackedImage.referenceImage.name;
 
-            foreach (var curPrefab in arPrefabs) {
-                // Check whether this prefab matches the tracked image name, and that
-                // the prefab hasn't already been created
-                if (string.Compare(curPrefab.name, imageName, StringComparison.OrdinalIgnoreCase) == 0
-                    && !_instantiatedPrefabs.ContainsKey(imageName)) {
-                    // Instantiate the prefab, parenting it to the ARTrackedImage
-                    var newPrefab = Instantiate(curPrefab, trackedImage.transform);
-                    _instantiatedPrefabs[imageName] = newPrefab;
+                foreach (var curPrefab in arPrefabs) {
+                    // Check whether this prefab matches the tracked image name, and that
+                    // the prefab hasn't already been created
+                    if (string.Compare(curPrefab.name, imageName, StringComparison.OrdinalIgnoreCase) == 0
+                        && !_instantiatedPrefabs.ContainsKey(imageName)) {
+                        // Instantiate the prefab, parenting it to the ARTrackedImage
+                        var newPrefab = Instantiate(curPrefab, trackedImage.transform);
+                        _instantiatedPrefabs[imageName] = newPrefab;
+                    }
                 }
             }
-        }
 
-        foreach (var trackedImage in eventArgs.updated) {
-            _instantiatedPrefabs[trackedImage.referenceImage.name]
-                .SetActive(trackedImage.trackingState == TrackingState.Tracking);
-        }
+            foreach (var trackedImage in eventArgs.updated) {
+                _instantiatedPrefabs[trackedImage.referenceImage.name]
+                    .SetActive(trackedImage.trackingState == TrackingState.Tracking);
+            }
 
 
-        foreach (var trackedImage in eventArgs.removed) {
-            // Destroy(_instantiatedPrefabs[trackedImage.referenceImage.name]);
-            // _instantiatedPrefabs.Remove(trackedImage.referenceImage.name);
-            
-            // Or, simply set the prefab instance to inactive
-            _instantiatedPrefabs[trackedImage.referenceImage.name].SetActive(false);
+            // foreach (var trackedImage in eventArgs.removed) {
+            //     // Or, simply set the prefab instance to inactive
+            //     _instantiatedPrefabs[trackedImage.referenceImage.name].SetActive(false);
+            // }
         }
     }
 }
