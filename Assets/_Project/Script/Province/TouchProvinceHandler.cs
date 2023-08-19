@@ -54,7 +54,9 @@ namespace FakeMG.Province {
                 // If it is a different province
                 //TODO: clean this mess
                 hitProvinceRaiser.RaiseProvince();
-                _preHitProvinceRaiser?.LowerProvince();
+                if (_preHitProvinceRaiser) {
+                    _preHitProvinceRaiser.LowerProvince();
+                }
                 
                 provinceDetailRaiser.SetPosForClosedProvinceDetail(hitProvinceRaiser.transform.position);
                 provinceDetailRaiser.RaiseProvinceInfo(hitProvinceRaiser.name);

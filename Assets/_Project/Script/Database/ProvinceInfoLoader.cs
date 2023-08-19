@@ -39,7 +39,7 @@ namespace FakeMG.Database {
                         description.text = "";
                     
                         foreach (DataSnapshot provincesSnapshot in snapshot.Children) {
-                            if (!ReferenceEquals(description, null)) {
+                            if (description) {
                                 StringBuilder sb = new StringBuilder(description.text);
                                 if (provincesSnapshot.Key != "Description")
                                     sb.AppendLine("- " + provincesSnapshot.Key + ": " + provincesSnapshot.Value);

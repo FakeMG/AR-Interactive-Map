@@ -20,6 +20,7 @@ namespace FakeMG.UI {
         }
 
         private void Update() {
+            //TODO: optimize this
             if (contentHolder.transform.childCount != _previousChildCount) {
                 _previousChildCount = contentHolder.transform.childCount;
                 _childrenText.Clear();

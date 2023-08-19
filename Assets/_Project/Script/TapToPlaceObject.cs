@@ -54,7 +54,7 @@ namespace FakeMG {
                 }
             }
 
-            if (objectToPlace != null) {
+            if (objectToPlace) {
                 objectToPlace.transform.localScale =
                     Vector3.Lerp(objectToPlace.transform.localScale, _desiredObjectScale,
                         Time.deltaTime * animationSpeed);

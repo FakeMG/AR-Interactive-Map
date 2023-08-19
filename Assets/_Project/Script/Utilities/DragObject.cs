@@ -32,7 +32,7 @@ namespace FakeMG.Utilities {
                 Ray ray = _mainCamera.ScreenPointToRay(inputPosition);
 
                 if (Physics.Raycast(ray, out var hit, reachDistance, puzzle)) {
-                    if (hit.collider != null) {
+                    if (hit.collider) {
                         _isDragging = true;
                         _selectedObject = hit.transform;
                     }
