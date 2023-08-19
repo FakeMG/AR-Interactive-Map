@@ -13,7 +13,6 @@ namespace FakeMG.Database {
         [SerializeField] private GameObject template;
 
         private void Awake() {
-            // Nếu tắt list nhanh quá thì sẽ ko load đc ảnh
             RetrievePeopleName();
         }
 
@@ -28,7 +27,7 @@ namespace FakeMG.Database {
 
                         foreach (DataSnapshot dataSnapshot in snapshot.Children) {
                             GameObject go = Instantiate(template, contentHolder.transform);
-                            go.transform.parent = contentHolder.transform;
+                            go.transform.SetParent(contentHolder.transform, false);
                             go.SetActive(true);
                         
                             DownloadImage(dataSnapshot.Key, go.transform.GetChild(0).GetComponent<RawImage>());
