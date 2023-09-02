@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using FakeMG.Database;
 using FakeMG.Utilities;
 using UnityEngine;
 
@@ -67,8 +66,12 @@ namespace FakeMG.Province {
             if (_landmarkInfoList == null || _landmarkInfoList.Count == 0) return true;
             return _landmarkInfoList[^1].IsUp();
         }
+
+        public string GetCurrentLandmarkName() {
+            return _landmarkInfoList[_currentLandmarkIndex].name;
+        }
         
-        public void SetLandmarkInfoList(List<ScaleObject> landmarkInfoList) {
+        public void SetLandmarkList(List<ScaleObject> landmarkInfoList) {
             _landmarkInfoList = landmarkInfoList;
         }
 

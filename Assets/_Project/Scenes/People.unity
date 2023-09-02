@@ -1360,32 +1360,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 399384941}
-        m_TargetAssemblyTypeName: InfoUIRaiser, Assembly-CSharp
+        m_TargetAssemblyTypeName: FakeMG.UI.InfoUIRaiser, Assembly-CSharp
         m_MethodName: RaiseInfoUI
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 864901100}
-        m_TargetAssemblyTypeName: Script.UI.InfoUIDataLoader, Assembly-CSharp
-        m_MethodName: LoadDataToUI
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 1627010018}
-          m_ObjectArgumentAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 710118203}
-        m_TargetAssemblyTypeName: Script.UI.InfoUIDataLoader, Assembly-CSharp
-        m_MethodName: LoadDataToUI
         m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 1627010018}
@@ -7344,8 +7320,6 @@ MonoBehaviour:
     m_Bits: 1
   provinceDetailRaiser: {fileID: 1066428916}
   infoUIRaiser: {fileID: 399384941}
-  infoUIDataLoader: {fileID: 864901100}
-  infoUIDataLoader1: {fileID: 710118203}
 --- !u!114 &1678976398
 MonoBehaviour:
   m_ObjectHideFlags: 0

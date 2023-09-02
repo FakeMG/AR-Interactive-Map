@@ -20,7 +20,8 @@ namespace FakeMG.People {
                     go.transform.SetParent(contentHolder.transform, false);
                     go.SetActive(true);
 
-                    DatabaseBehavior.Instance.DownloadImage(dataSnapshot.Key,
+                    var imagePath = "people icon" + "/" + dataSnapshot.Key + ".jpg"; 
+                    DatabaseBehavior.Instance.DownloadImage(imagePath,
                         go.transform.GetChild(0).GetComponent<RawImage>());
                     go.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = dataSnapshot.Key;
                 }

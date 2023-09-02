@@ -21,7 +21,9 @@ namespace FakeMG.Province {
 
         public void RetrieveProvinceData(string provinceName) {
             displayName.text = provinceName;
-            DatabaseBehavior.Instance.DownloadImage(provinceName, image);
+            var imagePath = "provinces icon" + "/" + provinceName + ".jpg"; 
+            DatabaseBehavior.Instance.DownloadImage(imagePath, image);
+            
             DatabaseBehavior.Instance.LoadData("provinces/" + provinceName, snapshot => {
                 description.text = "";
 

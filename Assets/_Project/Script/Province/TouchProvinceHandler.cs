@@ -11,8 +11,6 @@ namespace FakeMG.Province {
         [SerializeField] private LayerMask provinceLayerMask;
         [SerializeField] private ProvinceDetailRaiser provinceDetailRaiser;
         [SerializeField] private InfoUIRaiser infoUIRaiser;
-        [SerializeField] private InfoUIDataLoader infoUIDataLoader;
-        [SerializeField] private InfoUIDataLoader infoUIDataLoader1;
 
         private RaiseObject _preHitProvinceRaiser;
         private Camera _camera;
@@ -39,6 +37,7 @@ namespace FakeMG.Province {
                 // If it is the same province and the last landmark is NOT up
                 if (hitProvinceRaiser.IsProvinceUp() && !provinceDetailRaiser.IsLastLandmarkUp()) {
                     provinceDetailRaiser.RaiseNextLandmark();
+                    infoUIRaiser.RaiseInfoUI("landmarks", provinceDetailRaiser.GetCurrentLandmarkName());
                     return;
                 }
 
@@ -62,18 +61,14 @@ namespace FakeMG.Province {
                 // Raise province detail and info UI
                 provinceDetailRaiser.SetPosForClosedProvinceDetail(hitProvinceRaiser.transform.position);
                 provinceDetailRaiser.RaiseProvinceInfo(hitProvinceRaiser.name);
+                infoUIRaiser.RaiseInfoUI("provinces", hitProvinceRaiser.name);
 
                 // Get new landmark info list
-                List<ScaleObject> children = new List<ScaleObject>();
+                List<ScaleObject> landmarkList = new List<ScaleObject>();
                 foreach (Transform child in currentObject.transform) {
-                    children.Add(child.gameObject.GetComponent<ScaleObject>());
+                    landmarkList.Add(child.GetComponent<ScaleObject>());
                 }
-
-                provinceDetailRaiser.SetLandmarkInfoList(children);
-
-                infoUIDataLoader.LoadDataToUI("provinces", hitProvinceRaiser.name);
-                infoUIDataLoader1.LoadDataToUI("provinces", hitProvinceRaiser.name);
-                infoUIRaiser.RaiseInfoUI();
+                provinceDetailRaiser.SetLandmarkList(landmarkList);
             }
         }
 

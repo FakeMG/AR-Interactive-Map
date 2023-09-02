@@ -9,15 +9,12 @@ namespace FakeMG.UI {
         [SerializeField] private TextMeshProUGUI title;
         [SerializeField] private RawImage image;
 
-        public void LoadDataToUI(TextMeshProUGUI peopleName) {
-            LoadDataToUI("people", peopleName.text);
-        }
-
-        public void LoadDataToUI(string path, string dataName) {
+        public void LoadDataToUI(string type, string dataName) {
             title.text = dataName;
-            DatabaseBehavior.Instance.DownloadImage(path + " icon", image);
+            var imagePath = type + " icon" + "/" + dataName + ".jpg"; 
+            DatabaseBehavior.Instance.DownloadImage(imagePath, image);
             
-            DatabaseBehavior.Instance.LoadData(path + "/" + dataName + "/Description", snapshot => {
+            DatabaseBehavior.Instance.LoadData(type + "/" + dataName + "/Description", snapshot => {
                 content.text = "";
                 string data = snapshot.Value.ToString();
                 data = data.Replace("\\n", "\n");

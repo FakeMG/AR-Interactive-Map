@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -11,6 +12,7 @@ namespace FakeMG.UI {
 
         private float _canvasHeight;
 
+        private readonly InfoUIDataLoader[] _infoUIDataLoader = new InfoUIDataLoader[2];
         private readonly RectTransform[] _infoUI = new RectTransform[2];
 
         private float _notVisiblePosY;
@@ -24,6 +26,9 @@ namespace FakeMG.UI {
 
             _infoUI[0] = transform.GetChild(0).GetComponent<RectTransform>();
             _infoUI[1] = transform.GetChild(1).GetComponent<RectTransform>();
+            
+            _infoUIDataLoader[0] = _infoUI[0].GetComponent<InfoUIDataLoader>();
+            _infoUIDataLoader[1] = _infoUI[1].GetComponent<InfoUIDataLoader>();
         }
 
         // The layout group script (as well as content size fitters) need a frame to update before you can get the correct element size values
@@ -65,15 +70,20 @@ namespace FakeMG.UI {
             }
         }
 
-        public void RaiseInfoUI() {
+        public void RaiseInfoUI(string path, string dataName) {
             for (int i = 0; i < _targetYPos.Length; i++) {
                 if (Math.Abs(_targetYPos[i] - _notVisiblePosY) < 0.01f) {
                     _targetYPos[i] = _lowerPosY;
 
                     _targetYPos[(i + 1) % 2] = _notVisiblePosY;
+                    _infoUIDataLoader[i].LoadDataToUI(path, dataName);
                     break;
                 }
             }
+        }
+        
+        public void RaiseInfoUI(TextMeshProUGUI peopleName) {
+            RaiseInfoUI("people", peopleName.text);
         }
 
         public void LowerAll() {
