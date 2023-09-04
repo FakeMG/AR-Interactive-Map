@@ -69,7 +69,7 @@ namespace FakeMG.Utilities {
         }
 
         private void SnapToPosition() {
-            if (_selectedObject == null) return;
+            if (!_selectedObject) return;
             if (_originalPositions == null) return;
         
             foreach (var pos in _originalPositions) {

@@ -29,17 +29,18 @@ namespace FakeMG.Utilities {
             };
         }
 
-        public void ResetAllButtons() {
+        public void ActivateButton(GameObject button) {
+            ResetAllButtons();
+            HighlightButton(button);
+            ToggleCorrespondingElements(button, true);
+            onSceneSwitch?.Invoke();
+        }
+
+        private void ResetAllButtons() {
             foreach (GameObject button in _buttons) {
                 UnhighlightButton(button);
                 ToggleCorrespondingElements(button, false);
             }
-        }
-
-        public void ActivateButton(GameObject button) {
-            HighlightButton(button);
-            ToggleCorrespondingElements(button, true);
-            onSceneSwitch?.Invoke();
         }
 
         private void UnhighlightButton(GameObject button) {

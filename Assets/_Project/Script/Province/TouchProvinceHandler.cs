@@ -37,7 +37,7 @@ namespace FakeMG.Province {
                 // If it is the same province and the last landmark is NOT up
                 if (hitProvinceRaiser.IsProvinceUp() && !provinceDetailRaiser.IsLastLandmarkUp()) {
                     provinceDetailRaiser.RaiseNextLandmark();
-                    infoUIRaiser.RaiseInfoUI("landmarks", provinceDetailRaiser.GetCurrentLandmarkName());
+                    infoUIRaiser.RaiseInfoUI("attractions", provinceDetailRaiser.GetCurrentLandmarkName());
                     return;
                 }
 

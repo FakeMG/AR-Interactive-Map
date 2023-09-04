@@ -2362,18 +2362,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2026709651}
         m_TargetAssemblyTypeName: FakeMG.Utilities.TabSwitcher, Assembly-CSharp
-        m_MethodName: ResetAllButtons
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2026709651}
-        m_TargetAssemblyTypeName: FakeMG.Utilities.TabSwitcher, Assembly-CSharp
         m_MethodName: ActivateButton
         m_Mode: 2
         m_Arguments:
@@ -4360,6 +4348,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6
+--- !u!4 &959642364 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -979555896392686582, guid: 56b99390899d91742888182f430ac9e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1805093747}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &961172370
 GameObject:
   m_ObjectHideFlags: 0
@@ -6969,18 +6963,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2026709651}
         m_TargetAssemblyTypeName: FakeMG.Utilities.TabSwitcher, Assembly-CSharp
-        m_MethodName: ResetAllButtons
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: People
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2026709651}
-        m_TargetAssemblyTypeName: FakeMG.Utilities.TabSwitcher, Assembly-CSharp
         m_MethodName: ActivateButton
         m_Mode: 2
         m_Arguments:
@@ -9182,6 +9164,119 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1813371341}
   m_CullTransparentMesh: 1
+--- !u!1 &1822938321
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1822938322}
+  - component: {fileID: 1822938326}
+  - component: {fileID: 1822938325}
+  - component: {fileID: 1822938324}
+  - component: {fileID: 1822938323}
+  m_Layer: 0
+  m_Name: "V\u1ECBnh H\u1EA1 Long"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1822938322
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822938321}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.7, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 959642364}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1822938323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822938321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0987872351e04a4b8bf40f614495ebed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinSpeed: 50
+--- !u!114 &1822938324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822938321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 523154d305d942e392eb6a7dab821e7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 6
+  min: {x: 0, y: 0, z: 0}
+  max: {x: 0.5, y: 0.5, z: 0.5}
+--- !u!23 &1822938325
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822938321}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1822938326
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822938321}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &1872304135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10351,18 +10446,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2026709651}
-        m_TargetAssemblyTypeName: FakeMG.Utilities.TabSwitcher, Assembly-CSharp
-        m_MethodName: ResetAllButtons
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Province
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2026709651}
         m_TargetAssemblyTypeName: FakeMG.Utilities.TabSwitcher, Assembly-CSharp
         m_MethodName: ActivateButton
