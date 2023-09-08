@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using FakeMG.Database;
 using FakeMG.UI;
 using FakeMG.Utilities;
 using UnityEngine;

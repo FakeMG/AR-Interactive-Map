@@ -12,8 +12,10 @@ namespace FakeMG.People {
         private readonly List<RaiseObject> _provinceBehaviours = new();
 
         private void Awake() {
-            foreach (Transform province in vietnamModel.transform) {
-                _provinceBehaviours.Add(province.GetComponent<RaiseObject>());
+            foreach (Transform region in vietnamModel.transform) {
+                foreach (Transform province in region) {
+                    _provinceBehaviours.Add(province.GetComponent<RaiseObject>());
+                }
             }
         }
 

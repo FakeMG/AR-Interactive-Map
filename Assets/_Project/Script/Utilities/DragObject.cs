@@ -1,24 +1,21 @@
-using System.Collections.Generic;
+using FakeMG.ScriptableObject;
 using UnityEngine;
 
 namespace FakeMG.Utilities {
     public class DragObject : MonoBehaviour {
         [SerializeField] private LayerMask ground;
         [SerializeField] private LayerMask puzzle;
-        [SerializeField] private Transform vietnamModel;
         [SerializeField] private float snapDistance = 0.1f;
         [SerializeField] private float reachDistance = 5f;
+        [SerializeField] private OriginalPosition originalPosition;
     
         private Vector3 _posDiff;
         private bool _isDragging;
         private Camera _mainCamera;
         private Transform _selectedObject;
-        private Dictionary<GameObject, Vector3> _originalPositions;
 
         private void Start() {
             _mainCamera = Camera.main;
-
-            GetOriginalPos();
         }
 
         private void Update() {
@@ -70,19 +67,12 @@ namespace FakeMG.Utilities {
 
         private void SnapToPosition() {
             if (!_selectedObject) return;
-            if (_originalPositions == null) return;
+            if (!originalPosition) return;
         
-            foreach (var pos in _originalPositions) {
+            foreach (var pos in originalPosition.OriginalPositions) {
                 if (Vector3.Distance(_selectedObject.position, pos.Value) < snapDistance) {
                     _selectedObject.position = pos.Value;
                 }
-            }
-        }
-
-        public void GetOriginalPos() {
-            _originalPositions = new Dictionary<GameObject, Vector3>();
-            foreach (Transform child in vietnamModel) {
-                _originalPositions.Add(child.gameObject, child.position);
             }
         }
     }

@@ -27,13 +27,3 @@ MonoBehaviour:
     m_SpecifySize: 1
     m_Name: joker
     m_Texture: {fileID: 0}
-  - m_SerializedGuid:
-      m_GuidLow: 4691418501438093267
-      m_GuidHigh: 13191270452840456117
-    m_SerializedTextureGuid:
-      m_GuidLow: 11170297546303865513
-      m_GuidHigh: 18284915845195841819
-    m_Size: {x: 0, y: 0}
-    m_SpecifySize: 0
-    m_Name: dan_toc_khang_nu Variant
-    m_Texture: {fileID: 0}

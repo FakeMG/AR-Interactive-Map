@@ -27,6 +27,8 @@ namespace FakeMG.Utilities {
                 peopleObjects,
                 puzzleObjects
             };
+            
+            ActivateButton(_buttons[0]);
         }
 
         public void ActivateButton(GameObject button) {

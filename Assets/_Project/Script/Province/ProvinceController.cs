@@ -4,20 +4,11 @@ using UnityEngine;
 
 namespace FakeMG.Province {
     public class ProvinceController : MonoBehaviour {
-
-        private readonly List<RaiseObject> _provinceRaisers = new();
+        private List<RaiseObject> _provinceRaisers;
 
         private void Awake() {
             RaiseObject[] provinceRaisers = FindObjectsOfType<RaiseObject>();
-            _provinceRaisers.AddRange(provinceRaisers);
-        }
-        
-        public void LowerAllProvinceExcept(RaiseObject province) {
-            foreach (RaiseObject provinceRaiser in _provinceRaisers) {
-                if (provinceRaiser != province) {
-                    provinceRaiser.LowerProvince();
-                }
-            }
+            _provinceRaisers = new List<RaiseObject>(provinceRaisers);
         }
         
         public void LowerAllProvince() {

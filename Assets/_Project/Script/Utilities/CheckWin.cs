@@ -1,17 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using FakeMG.ScriptableObject;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace FakeMG.Utilities {
     public class CheckWin : MonoBehaviour {
-        [SerializeField] private Transform vietnamModel;
         [SerializeField] private UnityEvent onWin;
-        private Dictionary<GameObject, Vector3> _originalPositions;
+        [SerializeField] private OriginalPosition originalPosition;
+
+        private List<GameObject> _objectsList;
 
         private void Start() {
-            //TODO: remove this later
-            // GetOriginalPos();
+            enabled = false;
         }
 
         private void Update() {
@@ -20,16 +22,15 @@ namespace FakeMG.Utilities {
             }
         }
 
-        private bool IsWin() {
-            if (_originalPositions == null) return false;
-            return _originalPositions.All(item => item.Key.transform.position == item.Value);
+        public void StartTimer(List<GameObject> objectsList) {
+            _objectsList = objectsList;
+            //TODO: Start timer
+            Debug.Log("Start timer");
         }
-    
-        public void GetOriginalPos() {
-            _originalPositions = new Dictionary<GameObject, Vector3>();
-            foreach (Transform child in vietnamModel) {
-                _originalPositions.Add(child.gameObject, child.position);
-            }
+
+        private bool IsWin() {
+            return _objectsList.All(obj =>
+                obj.transform.position == originalPosition.OriginalPositions[obj.gameObject]);
         }
     }
 }

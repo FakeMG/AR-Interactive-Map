@@ -1,67 +1,74 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 namespace FakeMG.Utilities {
     public class ScrambleObject : MonoBehaviour {
-        [SerializeField] private Transform model;
         [SerializeField] private float minRange = 3f;
         [SerializeField] private float maxRange = 6f;
         [SerializeField] private float minimumObjectsDistance = 0.5f;
-        [SerializeField] private float animationSpeed = 6f;
-    
+        [SerializeField] private float animationDuration = 2f;
+        [SerializeField] private float delayTime;
+        [SerializeField] private UnityEvent<List<GameObject>> callback;
+
         private List<GameObject> _objectsList;
         private List<Vector3> _newPositions;
 
-        private void Start() {
+        public void RepositionObjectsRandomlyAround(Transform parent) {
             _newPositions = new List<Vector3>();
             _objectsList = new List<GameObject>();
-            foreach (Transform child in model) {
+            foreach (Transform child in parent) {
                 _objectsList.Add(child.gameObject);
             }
-        }
 
-        public void RepositionObjectsRandomly() {
             foreach (var child in _objectsList) {
-                Vector3 newPosition = GetRandomNonOverlappingPosition();
+                Vector3 newPosition = GetRandomNonOverlappingPositionAround(parent);
                 newPosition.y = child.transform.position.y;
-                _newPositions.Add(newPosition);
-                StartCoroutine(Animation(child.transform, newPosition));
+                child.transform.DOMove(newPosition, animationDuration).SetDelay(delayTime).SetEase(Ease.InOutQuad)
+                    .OnComplete(() => {
+                        if (_objectsList.IndexOf(child) == _objectsList.Count - 1)
+                            callback?.Invoke(_objectsList);
+                    });
             }
         }
 
-        private Vector3 GetRandomNonOverlappingPosition() {
+        public void ReRepositionObjectsRandomly() {
+            _newPositions = new List<Vector3>();
+            
+            foreach (var child in _objectsList) {
+                Vector3 newPosition = GetRandomNonOverlappingPositionAround(child.transform.parent);
+                newPosition.y = child.transform.position.y;
+                child.transform.DOMove(newPosition, animationDuration).SetDelay(delayTime).SetEase(Ease.InOutQuad)
+                    .OnComplete(() => {
+                        if (_objectsList.IndexOf(child) == _objectsList.Count - 1)
+                            callback?.Invoke(_objectsList);
+                    });
+            }
+        }
+
+        private Vector3 GetRandomNonOverlappingPositionAround(Transform parent) {
             Vector3 randomPosition;
             bool overlapDetected;
 
             do {
                 float angle = Random.Range(0f, 2f * Mathf.PI);
                 randomPosition = new Vector3(Mathf.Cos(angle), 0f, Mathf.Sin(angle)) * Random.Range(minRange, maxRange);
-                randomPosition += model.position;
+                randomPosition += parent.position;
 
                 overlapDetected = false;
-                for (int i = 0; i < _newPositions.Count; i++) {
-                    if (Vector3.Distance(randomPosition, _newPositions[i]) < minimumObjectsDistance) {
+                foreach (var position in _newPositions) {
+                    if (Vector3.Distance(randomPosition, position) < minimumObjectsDistance) {
                         overlapDetected = true;
                         break;
                     }
                 }
             } while (overlapDetected);
 
-            return randomPosition;
-        }
+            _newPositions.Add(randomPosition);
 
-        private IEnumerator Animation(Transform objectToAnimated, Vector3 desiredPos) {
-            while (true) {
-                objectToAnimated.position = Vector3.Lerp(objectToAnimated.position, desiredPos, Time.deltaTime * animationSpeed);
-                if (Vector3.Distance(objectToAnimated.position, desiredPos) <= 0.01f) {
-                    objectToAnimated.position = desiredPos;
-                    break;
-                }
-                yield return new WaitForEndOfFrame();
-            }
-            yield return null;
+            return randomPosition;
         }
     }
 }
