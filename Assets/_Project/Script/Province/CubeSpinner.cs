@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FakeMG.Utilities {
+namespace FakeMG.Province {
     public class CubeSpinner : MonoBehaviour {
         public float spinSpeed = 50f; // Rotation speed in degrees per second
 

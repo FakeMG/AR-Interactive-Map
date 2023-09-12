@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using FakeMG.UI;
-using FakeMG.Utilities;
+using FakeMG.Main;
+using FakeMG.Main.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -58,7 +58,7 @@ namespace FakeMG.Province {
                 _preHitProvinceRaiser = hitProvinceRaiser;
 
                 // Raise province detail and info UI
-                provinceDetailRaiser.SetPosForClosedProvinceDetail(hitProvinceRaiser.transform.position);
+                provinceDetailRaiser.SetLocalPosForClosedProvinceDetail(hitProvinceRaiser.transform.position);
                 provinceDetailRaiser.RaiseProvinceInfo(hitProvinceRaiser.name);
                 infoUIRaiser.RaiseInfoUI("provinces", hitProvinceRaiser.name);
 

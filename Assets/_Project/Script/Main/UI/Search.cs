@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-namespace FakeMG.UI {
+namespace FakeMG.Main.UI {
     public class Search : MonoBehaviour {
         [SerializeField] private GameObject contentHolder;
         [SerializeField] private TMP_InputField inputField;

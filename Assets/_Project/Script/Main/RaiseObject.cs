@@ -1,7 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-namespace FakeMG.Utilities {
+namespace FakeMG.Main {
     public class RaiseObject : MonoBehaviour {
         [SerializeField] private float duration = 1f;
 
@@ -16,12 +16,12 @@ namespace FakeMG.Utilities {
 
         public void RaiseProvince() {
             _desiredY = _localUpY;
-            transform.DOMoveY(_desiredY, duration);
+            transform.DOLocalMoveY(_desiredY, duration);
         }
 
         public void LowerProvince() {
             _desiredY = _localOriginalY;
-            transform.DOMoveY(_desiredY, duration);
+            transform.DOLocalMoveY(_desiredY, duration);
         }
 
         public bool IsProvinceUp() {

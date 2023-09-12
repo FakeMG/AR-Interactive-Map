@@ -1,7 +1,7 @@
 using FakeMG.ScriptableObject;
 using UnityEngine;
 
-namespace FakeMG.Utilities {
+namespace FakeMG.Puzzle {
     public class DragObject : MonoBehaviour {
         [SerializeField] private LayerMask ground;
         [SerializeField] private LayerMask puzzle;

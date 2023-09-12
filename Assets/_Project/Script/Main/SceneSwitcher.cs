@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace FakeMG.Utilities {
+namespace FakeMG.Main {
     public class SceneSwitcher : MonoBehaviour {
         public void SwitchToScene(string sceneName) {
             StartCoroutine(LoadSceneAsync(sceneName));

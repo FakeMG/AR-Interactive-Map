@@ -2,7 +2,7 @@
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace FakeMG.UI {
+namespace FakeMG.Main.UI {
     public class SwipeHandler : MonoBehaviour, IDragHandler {
         [SerializeField] private CanvasScaler canvasScaler;
     

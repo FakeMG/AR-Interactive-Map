@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace FakeMG.Utilities {
+namespace FakeMG.Main {
     public class TabSwitcher : MonoBehaviour {
         [SerializeField] private GameObject buttonGroup;
 
@@ -13,6 +13,9 @@ namespace FakeMG.Utilities {
         [SerializeField] private List<GameObject> puzzleObjects;
 
         [SerializeField] private UnityEvent onSceneSwitch;
+        [SerializeField] private UnityEvent onProvinceSwitch;
+        [SerializeField] private UnityEvent onPeopleSwitch;
+        [SerializeField] private UnityEvent onPuzzleSwitch;
 
         private List<List<GameObject>> _correspondingObjects;
         private readonly List<GameObject> _buttons = new();
@@ -36,6 +39,14 @@ namespace FakeMG.Utilities {
             HighlightButton(button);
             ToggleCorrespondingElements(button, true);
             onSceneSwitch?.Invoke();
+            
+            if (button == _buttons[0]) {
+                onProvinceSwitch?.Invoke();
+            } else if (button == _buttons[1]) {
+                onPeopleSwitch?.Invoke();
+            } else if (button == _buttons[2]) {
+                onPuzzleSwitch?.Invoke();
+            }
         }
 
         private void ResetAllButtons() {

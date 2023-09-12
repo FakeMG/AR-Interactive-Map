@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using FakeMG.ScriptableObject;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace FakeMG.Utilities {
+namespace FakeMG.Puzzle {
     public class CheckWin : MonoBehaviour {
         [SerializeField] private UnityEvent onWin;
         [SerializeField] private OriginalPosition originalPosition;

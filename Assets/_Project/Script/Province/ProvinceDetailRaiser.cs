@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using FakeMG.Utilities;
+using FakeMG.Main;
 using UnityEngine;
 
 namespace FakeMG.Province {
@@ -75,7 +75,7 @@ namespace FakeMG.Province {
             _landmarkInfoList = landmarkInfoList;
         }
 
-        public void SetPosForClosedProvinceDetail(Vector3 position) {
+        public void SetLocalPosForClosedProvinceDetail(Vector3 position) {
             foreach (var province in _provinceInfo) {
                 if (!province.IsUp()) {
                     province.transform.position = new Vector3(position.x, position.y + 0.7f, position.z);

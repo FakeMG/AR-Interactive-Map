@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
 
-namespace FakeMG.Database {
+namespace FakeMG.Main.Database {
     public class DatabaseBehavior : MonoBehaviour {
         public static DatabaseBehavior Instance { get; private set; }
 

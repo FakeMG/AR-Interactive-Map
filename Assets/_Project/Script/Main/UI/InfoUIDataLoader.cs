@@ -1,9 +1,9 @@
-﻿using FakeMG.Database;
+﻿using FakeMG.Main.Database;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace FakeMG.UI {
+namespace FakeMG.Main.UI {
     public class InfoUIDataLoader : MonoBehaviour {
         [SerializeField] private TextMeshProUGUI content;
         [SerializeField] private TextMeshProUGUI title;

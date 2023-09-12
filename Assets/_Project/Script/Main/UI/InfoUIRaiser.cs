@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace FakeMG.UI {
+namespace FakeMG.Main.UI {
     public class InfoUIRaiser : MonoBehaviour {
         [SerializeField] private float uiSwipeSpeed = 10f;
         [FormerlySerializedAs("topSection")] [SerializeField] private RectTransform bottomButtonGroup;

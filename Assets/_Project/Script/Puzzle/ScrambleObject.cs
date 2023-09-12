@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
-namespace FakeMG.Utilities {
+namespace FakeMG.Puzzle {
     public class ScrambleObject : MonoBehaviour {
         [SerializeField] private float minRange = 3f;
         [SerializeField] private float maxRange = 6f;
@@ -25,25 +25,26 @@ namespace FakeMG.Utilities {
 
             foreach (var child in _objectsList) {
                 Vector3 newPosition = GetRandomNonOverlappingPositionAround(parent);
-                newPosition.y = child.transform.position.y;
-                child.transform.DOMove(newPosition, animationDuration).SetDelay(delayTime).SetEase(Ease.InOutQuad)
+                child.transform.DOLocalMove(newPosition, animationDuration).SetDelay(delayTime).SetEase(Ease.InOutQuad)
                     .OnComplete(() => {
-                        if (_objectsList.IndexOf(child) == _objectsList.Count - 1)
+                        if (_objectsList.IndexOf(child) == _objectsList.Count - 1) {
                             callback?.Invoke(_objectsList);
+                        }
                     });
             }
         }
 
         public void ReRepositionObjectsRandomly() {
             _newPositions = new List<Vector3>();
-            
+
+            if (_objectsList == null) return;
             foreach (var child in _objectsList) {
                 Vector3 newPosition = GetRandomNonOverlappingPositionAround(child.transform.parent);
-                newPosition.y = child.transform.position.y;
-                child.transform.DOMove(newPosition, animationDuration).SetDelay(delayTime).SetEase(Ease.InOutQuad)
+                child.transform.DOLocalMove(newPosition, animationDuration).SetDelay(delayTime).SetEase(Ease.InOutQuad)
                     .OnComplete(() => {
-                        if (_objectsList.IndexOf(child) == _objectsList.Count - 1)
+                        if (_objectsList.IndexOf(child) == _objectsList.Count - 1) {
                             callback?.Invoke(_objectsList);
+                        }
                     });
             }
         }
@@ -54,7 +55,7 @@ namespace FakeMG.Utilities {
 
             do {
                 float angle = Random.Range(0f, 2f * Mathf.PI);
-                randomPosition = new Vector3(Mathf.Cos(angle), 0f, Mathf.Sin(angle)) * Random.Range(minRange, maxRange);
+                randomPosition = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * Random.Range(minRange, maxRange);
                 randomPosition += parent.position;
 
                 overlapDetected = false;

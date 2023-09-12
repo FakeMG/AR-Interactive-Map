@@ -3,7 +3,7 @@ using FakeMG.ScriptableObject;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace FakeMG.Utilities {
+namespace FakeMG.Puzzle {
     public class InitRegionButton : MonoBehaviour {
         [SerializeField] private GameObject vietnamModel;
         [SerializeField] private GameObject vietnamModelWhite;

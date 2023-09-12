@@ -3,7 +3,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 
-namespace FakeMG.UI {
+namespace FakeMG.Main.UI {
     public class SortList : MonoBehaviour {
         [SerializeField] private GameObject contentHolder;
         private List<TextMeshProUGUI> _childrenText;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace FakeMG.Utilities {
+namespace FakeMG.Province {
     public class FaceCamera : MonoBehaviour {
         private Transform _cam;
 

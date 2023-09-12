@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
-namespace FakeMG {
+namespace FakeMG.Main {
     [RequireComponent(typeof(ARTrackedImageManager))]
     public class PlaceTrackedImages : MonoBehaviour {
         // List of prefabs to instantiate - these should be named the same
@@ -63,10 +63,10 @@ namespace FakeMG {
                 }
             }
 
-            foreach (var trackedImage in eventArgs.updated) {
-                _instantiatedPrefabs[trackedImage.referenceImage.name]
-                    .SetActive(trackedImage.trackingState == TrackingState.Tracking);
-            }
+            // foreach (var trackedImage in eventArgs.updated) {
+            //     _instantiatedPrefabs[trackedImage.referenceImage.name]
+            //         .SetActive(trackedImage.trackingState == TrackingState.Tracking);
+            // }
 
 
             // foreach (var trackedImage in eventArgs.removed) {

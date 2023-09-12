@@ -1,5 +1,5 @@
 ﻿using System.Text;
-using FakeMG.Database;
+using FakeMG.Main.Database;
 using Firebase.Database;
 using TMPro;
 using UnityEngine;

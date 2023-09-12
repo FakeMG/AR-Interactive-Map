@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FakeMG.Utilities {
+namespace FakeMG.Province {
     public class ScaleObject : MonoBehaviour {
         [SerializeField] private float speed = 6f;
         [SerializeField] private Vector3 min = Vector3.zero;

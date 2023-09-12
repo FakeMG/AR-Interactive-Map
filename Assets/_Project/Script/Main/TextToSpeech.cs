@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace FakeMG.Utilities {
+namespace FakeMG.Main {
     public class TextToSpeech : MonoBehaviour {
         private const string URL = "https://api.fpt.ai/hmi/tts/v5";
         private const string API_KEY = APIKeys.FPT_TTS_API_KEY;

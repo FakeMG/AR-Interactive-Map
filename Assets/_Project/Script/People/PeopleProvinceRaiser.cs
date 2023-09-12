@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
-using FakeMG.Database;
-using FakeMG.Utilities;
+using FakeMG.Main;
+using FakeMG.Main.Database;
+using FakeMG.Province;
 using Firebase.Database;
 using TMPro;
 using UnityEngine;

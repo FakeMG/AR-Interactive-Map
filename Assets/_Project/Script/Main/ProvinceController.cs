@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using FakeMG.Utilities;
 using UnityEngine;
 
-namespace FakeMG.Province {
+namespace FakeMG.Main {
     public class ProvinceController : MonoBehaviour {
+        [SerializeField] private GameObject vietnamModel;
         private List<RaiseObject> _provinceRaisers;
 
         private void Awake() {
@@ -14,6 +14,12 @@ namespace FakeMG.Province {
         public void LowerAllProvince() {
             foreach (RaiseObject province in _provinceRaisers) {
                 province.LowerProvince();
+            }
+        }
+
+        public void ShowAllRegion() {
+            foreach (Transform region in vietnamModel.transform) {
+                region.gameObject.SetActive(true);
             }
         }
     }
