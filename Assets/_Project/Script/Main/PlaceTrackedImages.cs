@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using FakeMG.ScriptableObject;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
-using UnityEngine.XR.ARSubsystems;
 
 namespace FakeMG.Main {
     [RequireComponent(typeof(ARTrackedImageManager))]
@@ -11,6 +10,7 @@ namespace FakeMG.Main {
         // List of prefabs to instantiate - these should be named the same
         // as their corresponding 2D images in the reference image library 
         [SerializeField] private GameObject[] arPrefabs;
+        [SerializeField] private GameObject vietnamModelParent;
         [SerializeField] private GameObject vietnamModel;
         [SerializeField] private OriginalPosition originalPosition;
 
@@ -24,11 +24,17 @@ namespace FakeMG.Main {
         private void Awake() {
             _trackedImagesManager = GetComponent<ARTrackedImageManager>();
 #if !UNITY_EDITOR
-            vietnamModel.SetActive(false);
+            vietnamModelParent.SetActive(false);
 #endif
 
 #if UNITY_EDITOR
+            var card = new GameObject();
+            vietnamModelParent.transform.SetParent(card.transform);
+            vietnamModelParent.transform.localPosition = Vector3.zero;
             originalPosition.SetOriginalPos(vietnamModel.transform);
+
+            card.transform.position = new Vector3(UnityEngine.Random.Range(-5, 5), UnityEngine.Random.Range(-5, 5),
+                UnityEngine.Random.Range(-5, 5));
 #endif
         }
 
@@ -54,11 +60,11 @@ namespace FakeMG.Main {
                         // var newPrefab = Instantiate(curPrefab, trackedImage.transform);
                         // _instantiatedPrefabs[imageName] = newPrefab;
 
-                        vietnamModel.SetActive(true);
-                        vietnamModel.transform.SetParent(trackedImage.transform);
-                        vietnamModel.transform.localPosition = Vector3.zero;
+                        vietnamModelParent.SetActive(true);
+                        vietnamModelParent.transform.SetParent(trackedImage.transform);
+                        vietnamModelParent.transform.localPosition = Vector3.zero;
                         originalPosition.SetOriginalPos(vietnamModel.transform);
-                        _instantiatedPrefabs[imageName] = vietnamModel;
+                        _instantiatedPrefabs[imageName] = vietnamModelParent;
                     }
                 }
             }

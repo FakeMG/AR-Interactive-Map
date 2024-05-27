@@ -69,9 +69,9 @@ namespace FakeMG.Puzzle {
             if (!_selectedObject) return;
             if (!originalPosition) return;
         
-            foreach (var pos in originalPosition.OriginalPositions) {
-                if (Vector3.Distance(_selectedObject.position, pos.Value) < snapDistance) {
-                    _selectedObject.position = pos.Value;
+            foreach (var pos in originalPosition.OriginalLocalPositions) {
+                if (Vector3.Distance(_selectedObject.localPosition, pos.Value) < snapDistance) {
+                    _selectedObject.localPosition = pos.Value;
                 }
             }
         }

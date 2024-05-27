@@ -9,13 +9,13 @@ namespace FakeMG.Province {
             if (transform.localScale == Vector3.zero) return;
         
             // Get the current rotation of the cube
-            Vector3 currentRotation = transform.rotation.eulerAngles;
+            Vector3 currentRotation = transform.localRotation.eulerAngles;
 
             // Calculate the new rotation based on the spin speed and time elapsed
             float newRotationY = currentRotation.y + (spinSpeed * Time.deltaTime);
 
             // Apply the new rotation to the cube's transform
-            transform.rotation = Quaternion.Euler(currentRotation.x, newRotationY, currentRotation.z);
+            transform.localRotation = Quaternion.Euler(currentRotation.x, newRotationY, currentRotation.z);
         }
     }
 }

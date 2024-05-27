@@ -11,10 +11,6 @@ namespace FakeMG.Puzzle {
 
         private List<GameObject> _objectsList;
 
-        private void Start() {
-            enabled = false;
-        }
-
         private void Update() {
             if (IsWin()) {
                 onWin?.Invoke();
@@ -29,7 +25,7 @@ namespace FakeMG.Puzzle {
 
         private bool IsWin() {
             return _objectsList.All(obj =>
-                obj.transform.position == originalPosition.OriginalPositions[obj.gameObject]);
+                obj.transform.localPosition == originalPosition.OriginalLocalPositions[obj.gameObject]);
         }
     }
 }

@@ -75,10 +75,10 @@ namespace FakeMG.Province {
             _landmarkInfoList = landmarkInfoList;
         }
 
-        public void SetLocalPosForClosedProvinceDetail(Vector3 position) {
-            foreach (var province in _provinceInfo) {
-                if (!province.IsUp()) {
-                    province.transform.position = new Vector3(position.x, position.y + 0.7f, position.z);
+        public void SetPosForClosedProvinceDetail(Vector3 position) {
+            foreach (var provinceInfo in _provinceInfo) {
+                if (!provinceInfo.IsUp()) {
+                    provinceInfo.transform.position = new Vector3(position.x, position.y + 0.7f, position.z);
                 }
             }
         }

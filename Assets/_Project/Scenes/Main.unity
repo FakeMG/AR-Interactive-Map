@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 20830769}
   - component: {fileID: 20830768}
   - component: {fileID: 20830767}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "Tp. H\u1ED3 Ch\xED Minh"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,7 +314,7 @@ GameObject:
   - component: {fileID: 23120546}
   - component: {fileID: 23120545}
   - component: {fileID: 23120544}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: 'Kon Tum '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -449,7 +449,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 28031543}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -651,8 +651,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 240, y: -31.940323}
-  m_SizeDelta: {x: 480, y: 63.880646}
+  m_AnchoredPosition: {x: 240, y: -33.553226}
+  m_SizeDelta: {x: 480, y: 67.10645}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &44539888
 MonoBehaviour:
@@ -840,13 +840,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 56981981}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 80202016}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &56981984
 MonoBehaviour:
@@ -879,7 +879,7 @@ GameObject:
   - component: {fileID: 67954387}
   - component: {fileID: 67954386}
   - component: {fileID: 67954385}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "H\u01B0ng Y\xEAn"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -991,6 +991,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 1
+--- !u!1 &80202015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 80202016}
+  m_Layer: 0
+  m_Name: Main
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &80202016
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80202015}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 385060595}
+  - {fileID: 1409198424}
+  - {fileID: 822242970}
+  - {fileID: 1296663581}
+  - {fileID: 2026709652}
+  - {fileID: 56981983}
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &83150024
 GameObject:
   m_ObjectHideFlags: 0
@@ -1004,7 +1041,7 @@ GameObject:
   - component: {fileID: 83150028}
   - component: {fileID: 83150027}
   - component: {fileID: 83150026}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "B\u1EBFn Tre "
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1112,7 +1149,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 86031248}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "\u0110\u1ED3ng b\u1EB1ng s\xF4ng H\u1ED3ng"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1169,13 +1206,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 89912786}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &89912788
 MonoBehaviour:
@@ -1197,18 +1234,6 @@ MonoBehaviour:
   onPlayingSwitch:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1743713925}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1743713927}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
@@ -1221,13 +1246,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1743713924}
+      - m_Target: {fileID: 1743713925}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: 
-        m_Mode: 1
+        m_MethodName: set_enabled
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1373,7 +1398,7 @@ GameObject:
   - component: {fileID: 110053888}
   - component: {fileID: 110053887}
   - component: {fileID: 110053886}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "B\u1EAFc Ninh"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1510,8 +1535,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 240, y: -381.94034}
-  m_SizeDelta: {x: 480, y: 636.1194}
+  m_AnchoredPosition: {x: 240, y: -433.55322}
+  m_SizeDelta: {x: 480, y: 732.89355}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &111640697
 MonoBehaviour:
@@ -1639,8 +1664,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 240, y: -350}
-  m_SizeDelta: {x: 480, y: 700}
+  m_AnchoredPosition: {x: 240, y: -400}
+  m_SizeDelta: {x: 480, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &114166339
 MonoBehaviour:
@@ -1854,7 +1879,7 @@ GameObject:
   - component: {fileID: 133553689}
   - component: {fileID: 133553688}
   - component: {fileID: 133553687}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "Th\u1EEBa Thi\xEAn Hu\u1EBF"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1972,7 +1997,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &146452905
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1986,7 +2011,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 114166338}
-  - {fileID: 541055583}
   m_Father: {fileID: 555002260}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2202,7 +2226,7 @@ GameObject:
   - component: {fileID: 157652170}
   - component: {fileID: 157652169}
   - component: {fileID: 157652168}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "L\xE2m \u0110\u1ED3ng"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2460,7 +2484,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 187114346}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "\u0110\xF4ng B\u1EAFc B\u1ED9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2683,7 +2707,7 @@ GameObject:
   - component: {fileID: 211765547}
   - component: {fileID: 211765546}
   - component: {fileID: 211765545}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: DaoBachLongVy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2795,7 +2819,7 @@ GameObject:
   - component: {fileID: 233317469}
   - component: {fileID: 233317468}
   - component: {fileID: 233317467}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "Tr\xE0 Vinh"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3056,7 +3080,7 @@ GameObject:
   - component: {fileID: 242987232}
   - component: {fileID: 242987231}
   - component: {fileID: 242987230}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "H\u1EADu Giang"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3214,9 +3238,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2413806693520163455, guid: 9c07fa5adeffb2c459585b5c9cacd7b0,
-    type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: b357f80275bc9eb46adb2186522a11bc, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3294,7 +3317,7 @@ GameObject:
   - component: {fileID: 259335280}
   - component: {fileID: 259335279}
   - component: {fileID: 259335278}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "Ho\xE0 B\xECnh"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3406,7 +3429,7 @@ GameObject:
   - component: {fileID: 270742826}
   - component: {fileID: 270742825}
   - component: {fileID: 270742824}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: HuyenDaoTruongSa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3935,7 +3958,7 @@ GameObject:
   - component: {fileID: 350933800}
   - component: {fileID: 350933799}
   - component: {fileID: 350933798}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "B\xECnh D\u01B0\u01A1ng"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4073,7 +4096,7 @@ GameObject:
   - component: {fileID: 371534047}
   - component: {fileID: 371534046}
   - component: {fileID: 371534045}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "B\xECnh Ph\u01B0\u1EDBc"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4222,13 +4245,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 385060593}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 80202016}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &385060596
 MonoBehaviour:
@@ -4296,7 +4319,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiSwipeSpeed: 6
   bottomButtonGroup: {fileID: 1031898526}
-  canvas: {fileID: 1138315919}
+  canvas: {fileID: 1033373403}
 --- !u!114 &401973802
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4477,7 +4500,7 @@ GameObject:
   - component: {fileID: 467420552}
   - component: {fileID: 467420551}
   - component: {fileID: 467420550}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "TI\u1EC1n Giang"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4864,7 +4887,7 @@ GameObject:
   - component: {fileID: 488414776}
   - component: {fileID: 488414775}
   - component: {fileID: 488414774}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "B\u1EAFc K\u1EA1n"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5259,7 +5282,7 @@ GameObject:
   - component: {fileID: 498725827}
   - component: {fileID: 498725826}
   - component: {fileID: 498725825}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "B\u1EA1c Li\xEAu"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5371,7 +5394,7 @@ GameObject:
   - component: {fileID: 499301388}
   - component: {fileID: 499301387}
   - component: {fileID: 499301386}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "Ngh\u1EC7 An"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5545,139 +5568,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 1
---- !u!1 &541055582
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 541055583}
-  - component: {fileID: 541055586}
-  - component: {fileID: 541055585}
-  - component: {fileID: 541055584}
-  m_Layer: 5
-  m_Name: Back button
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &541055583
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 541055582}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 146452905}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 240, y: -750}
-  m_SizeDelta: {x: 100, y: 99.99999}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &541055584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 541055582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 541055585}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 89912788}
-        m_TargetAssemblyTypeName: FakeMG.Puzzle.PuzzleStateManager, Assembly-CSharp
-        m_MethodName: ChangeState
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Playing
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &541055585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 541055582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6257bb27c89d13e46b0809870dd7ad58, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &541055586
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 541055582}
-  m_CullTransparentMesh: 1
 --- !u!1 &553727020
 GameObject:
   m_ObjectHideFlags: 0
@@ -5691,7 +5581,7 @@ GameObject:
   - component: {fileID: 553727024}
   - component: {fileID: 553727023}
   - component: {fileID: 553727022}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "T\xE2y Ninh"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5808,7 +5698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &555002260
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5826,7 +5716,7 @@ RectTransform:
   - {fileID: 146452905}
   - {fileID: 912299057}
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5907,7 +5797,7 @@ GameObject:
   - component: {fileID: 555219062}
   - component: {fileID: 555219061}
   - component: {fileID: 555219060}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "Lai Ch\xE2u"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6270,7 +6160,7 @@ GameObject:
   - component: {fileID: 604416384}
   - component: {fileID: 604416383}
   - component: {fileID: 604416382}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Gia Lai
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6635,9 +6525,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2413806693520163455, guid: 9c07fa5adeffb2c459585b5c9cacd7b0,
-    type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: b357f80275bc9eb46adb2186522a11bc, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6667,7 +6556,7 @@ GameObject:
   - component: {fileID: 613238611}
   - component: {fileID: 613238610}
   - component: {fileID: 613238609}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: HuyenDaoHoangSa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6912,9 +6801,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2413806693520163455, guid: 9c07fa5adeffb2c459585b5c9cacd7b0,
-    type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: b357f80275bc9eb46adb2186522a11bc, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -7023,7 +6911,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!114 &646932815
 MonoBehaviour:
@@ -7064,7 +6952,7 @@ GameObject:
   - component: {fileID: 656400857}
   - component: {fileID: 656400856}
   - component: {fileID: 656400855}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "Ph\xFA Th\u1ECD"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7176,7 +7064,7 @@ GameObject:
   - component: {fileID: 660855417}
   - component: {fileID: 660855416}
   - component: {fileID: 660855415}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "B\u1EAFc Giang"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7288,7 +7176,7 @@ GameObject:
   - component: {fileID: 674617226}
   - component: {fileID: 674617225}
   - component: {fileID: 674617224}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "H\xE0 N\u1ED9i"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7795,7 +7683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 426549196c0b4e40bb9c4f4e61923d69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasScaler: {fileID: 1138315917}
+  canvasScaler: {fileID: 1033373405}
 --- !u!114 &710118205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8216,7 +8104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 750043755}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "B\u1EAFc Trung B\u1ED9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8665,7 +8553,7 @@ GameObject:
   - component: {fileID: 797943555}
   - component: {fileID: 797943554}
   - component: {fileID: 797943553}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "H\u1EA3i Ph\xF2ng"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8892,8 +8780,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 80202016}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &822242971
 MonoBehaviour:
@@ -9131,7 +9019,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 832140513}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "Nam Trung B\u1ED9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9259,8 +9147,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_Father: {fileID: 1800083123}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &846214810
 GameObject:
@@ -9580,7 +9468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 426549196c0b4e40bb9c4f4e61923d69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasScaler: {fileID: 1138315917}
+  canvasScaler: {fileID: 1033373405}
 --- !u!114 &864901102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9838,7 +9726,7 @@ GameObject:
   - component: {fileID: 879637604}
   - component: {fileID: 879637603}
   - component: {fileID: 879637602}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "V\u0129nh Long"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9950,7 +9838,7 @@ GameObject:
   - component: {fileID: 879675882}
   - component: {fileID: 879675881}
   - component: {fileID: 879675880}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "H\xE0 T\u0129nh"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10106,7 +9994,7 @@ GameObject:
   - component: {fileID: 911284649}
   - component: {fileID: 911284648}
   - component: {fileID: 911284647}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "Thanh Ho\xE1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10222,7 +10110,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &912299057
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10379,7 +10267,7 @@ GameObject:
   - component: {fileID: 918961405}
   - component: {fileID: 918961404}
   - component: {fileID: 918961403}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "\u0110\xE0 N\u1EB5ng"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10650,7 +10538,7 @@ GameObject:
   - component: {fileID: 972323661}
   - component: {fileID: 972323660}
   - component: {fileID: 972323659}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "C\u1EA7n Th\u01A1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10925,7 +10813,7 @@ GameObject:
   - component: {fileID: 1027700240}
   - component: {fileID: 1027700239}
   - component: {fileID: 1027700238}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "C\xE0 Mau"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11132,7 +11020,7 @@ RectTransform:
   - {fileID: 823663571}
   - {fileID: 399384940}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -11349,7 +11237,7 @@ GameObject:
   - component: {fileID: 1039889028}
   - component: {fileID: 1039889027}
   - component: {fileID: 1039889026}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "\u0110i\u1EC7n Bi\xEAn"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11470,7 +11358,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1051577960}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "\u0110\xF4ng Nam B\u1ED9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11543,7 +11431,7 @@ Transform:
   - {fileID: 2006908080}
   - {fileID: 253227919}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1077918267
 GameObject:
@@ -11817,6 +11705,7 @@ MonoBehaviour:
   arPrefabs:
   - {fileID: 1605899110655082678, guid: e483794db18a26c4c84d27c8e7482af7, type: 3}
   - {fileID: 1310306423205512311, guid: 59e2d83816bbeb1479f21f27ce55a8fc, type: 3}
+  vietnamModelParent: {fileID: 1800083122}
   vietnamModel: {fileID: 919132147738654242}
   originalPosition: {fileID: 11400000, guid: 2c573d0a19617b848b8af57cc8335ddf, type: 2}
 --- !u!114 &1108848928
@@ -12364,7 +12253,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1138315916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12441,7 +12330,7 @@ RectTransform:
   - {fileID: 1506442298}
   - {fileID: 743042654}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -12474,7 +12363,7 @@ GameObject:
   - component: {fileID: 1163251206}
   - component: {fileID: 1163251205}
   - component: {fileID: 1163251204}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "L\u1EA1ng S\u01A1n"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12984,7 +12873,7 @@ GameObject:
   - component: {fileID: 1233933983}
   - component: {fileID: 1233933982}
   - component: {fileID: 1233933981}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "Qu\u1EA3ng Tr\u1ECB"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13262,7 +13151,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1262847713
 MonoBehaviour:
@@ -13290,7 +13179,7 @@ GameObject:
   - component: {fileID: 1265226960}
   - component: {fileID: 1265226959}
   - component: {fileID: 1265226958}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "B\xECnh Thu\u1EADn"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13559,7 +13448,7 @@ GameObject:
   - component: {fileID: 1272186177}
   - component: {fileID: 1272186176}
   - component: {fileID: 1272186175}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "\u0110\u1EAFk N\xF4ng"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13671,7 +13560,7 @@ GameObject:
   - component: {fileID: 1289405193}
   - component: {fileID: 1289405192}
   - component: {fileID: 1289405191}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "Ninh Thu\u1EADn"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13794,13 +13683,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296663580}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_Father: {fileID: 80202016}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1296663582
 MonoBehaviour:
@@ -13840,7 +13729,7 @@ GameObject:
   - component: {fileID: 1315385858}
   - component: {fileID: 1315385857}
   - component: {fileID: 1315385856}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "Y\xEAn B\xE1i"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13952,7 +13841,7 @@ GameObject:
   - component: {fileID: 1319803563}
   - component: {fileID: 1319803562}
   - component: {fileID: 1319803561}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "Qu\u1EA3ng B\xECnh"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14161,9 +14050,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2413806693520163455, guid: 9c07fa5adeffb2c459585b5c9cacd7b0,
-    type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: b357f80275bc9eb46adb2186522a11bc, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -14292,7 +14180,7 @@ GameObject:
   - component: {fileID: 1345161189}
   - component: {fileID: 1345161188}
   - component: {fileID: 1345161187}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "L\xE0o Cai"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14626,7 +14514,7 @@ GameObject:
   - component: {fileID: 1391608681}
   - component: {fileID: 1391608680}
   - component: {fileID: 1391608679}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "Nam \u0110\u1ECBnh"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14822,13 +14710,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1409198422}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 80202016}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1409198425
 MonoBehaviour:
@@ -14999,7 +14887,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1434509677
 GameObject:
@@ -15237,7 +15125,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1465543130
 GameObject:
@@ -15252,7 +15140,7 @@ GameObject:
   - component: {fileID: 1465543134}
   - component: {fileID: 1465543133}
   - component: {fileID: 1465543132}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: An Giang
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15377,7 +15265,7 @@ GameObject:
   - component: {fileID: 1482648986}
   - component: {fileID: 1482648985}
   - component: {fileID: 1482648984}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "Ninh B\xECnh"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15678,9 +15566,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2413806693520163455, guid: 9c07fa5adeffb2c459585b5c9cacd7b0,
-    type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: b357f80275bc9eb46adb2186522a11bc, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -16091,7 +15978,7 @@ GameObject:
   - component: {fileID: 1513475011}
   - component: {fileID: 1513475010}
   - component: {fileID: 1513475009}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: DaoPhuQuy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16203,7 +16090,7 @@ GameObject:
   - component: {fileID: 1516725741}
   - component: {fileID: 1516725740}
   - component: {fileID: 1516725739}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "Th\xE1i Nguy\xEAn"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16529,7 +16416,7 @@ GameObject:
   - component: {fileID: 1541388383}
   - component: {fileID: 1541388382}
   - component: {fileID: 1541388381}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "Qu\u1EA3ng Ninh"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16641,7 +16528,7 @@ GameObject:
   - component: {fileID: 1544389869}
   - component: {fileID: 1544389868}
   - component: {fileID: 1544389867}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "Ki\xEAn Giang"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17113,7 +17000,7 @@ GameObject:
   - component: {fileID: 1591001007}
   - component: {fileID: 1591001006}
   - component: {fileID: 1591001005}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "\u0110\u1ED3ng Th\xE1p"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17298,9 +17185,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2413806693520163455, guid: 9c07fa5adeffb2c459585b5c9cacd7b0,
-    type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: b357f80275bc9eb46adb2186522a11bc, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -17330,7 +17216,7 @@ GameObject:
   - component: {fileID: 1625937068}
   - component: {fileID: 1625937067}
   - component: {fileID: 1625937066}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "H\xE0 Giang"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17442,7 +17328,7 @@ GameObject:
   - component: {fileID: 1635064661}
   - component: {fileID: 1635064660}
   - component: {fileID: 1635064659}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "Ph\xFA Y\xEAn"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17705,7 +17591,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1662257270
 MonoBehaviour:
@@ -17734,7 +17620,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1678845809}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BanDoVietNam White
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17761,8 +17647,8 @@ Transform:
   - {fileID: 1786169955}
   - {fileID: 1051577960}
   - {fileID: 2016694475}
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_Father: {fileID: 1800083123}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1678976398
 MonoBehaviour:
@@ -17790,7 +17676,7 @@ GameObject:
   - component: {fileID: 1681882290}
   - component: {fileID: 1681882289}
   - component: {fileID: 1681882288}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "Kh\xE1nh Ho\xE0"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18097,9 +17983,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2413806693520163455, guid: 9c07fa5adeffb2c459585b5c9cacd7b0,
-    type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: b357f80275bc9eb46adb2186522a11bc, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -18283,7 +18168,7 @@ GameObject:
   - component: {fileID: 1719520465}
   - component: {fileID: 1719520464}
   - component: {fileID: 1719520463}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "Th\xE1i B\xECnh"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18640,7 +18525,7 @@ MonoBehaviour:
   puzzle:
     serializedVersion: 2
     m_Bits: 64
-  snapDistance: 0.2
+  snapDistance: 0.1
   reachDistance: 20
   originalPosition: {fileID: 11400000, guid: 2c573d0a19617b848b8af57cc8335ddf, type: 2}
 --- !u!4 &1743713928
@@ -18656,7 +18541,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1754741274
 GameObject:
@@ -18667,7 +18552,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1754741275}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "T\xE2y B\u1EAFc B\u1ED9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19005,7 +18890,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1786169955}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "T\xE2y Nguy\xEAn"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19058,7 +18943,7 @@ GameObject:
   - component: {fileID: 1791655598}
   - component: {fileID: 1791655597}
   - component: {fileID: 1791655596}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: DaoPhuQuoc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19157,6 +19042,40 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791655594}
   m_Mesh: {fileID: 6768943199385149842, guid: 56b99390899d91742888182f430ac9e2, type: 3}
+--- !u!1 &1800083122
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1800083123}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1800083123
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800083122}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 543450651928751256}
+  - {fileID: 1678845809}
+  - {fileID: 842592466}
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1804859118
 GameObject:
   m_ObjectHideFlags: 0
@@ -19736,7 +19655,7 @@ GameObject:
   - component: {fileID: 1844147764}
   - component: {fileID: 1844147763}
   - component: {fileID: 1844147762}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "Qu\u1EA3ng Nam"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19848,7 +19767,7 @@ GameObject:
   - component: {fileID: 1859588071}
   - component: {fileID: 1859588070}
   - component: {fileID: 1859588069}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "V\u0129nh Ph\xFAc"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19960,7 +19879,7 @@ GameObject:
   - component: {fileID: 1864769796}
   - component: {fileID: 1864769795}
   - component: {fileID: 1864769794}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "H\u1EA3i D\u01B0\u01A1ng"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20098,7 +20017,7 @@ GameObject:
   - component: {fileID: 1887333859}
   - component: {fileID: 1887333858}
   - component: {fileID: 1887333857}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "S\xF3c Tr\u0103ng"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20501,7 +20420,7 @@ GameObject:
   - component: {fileID: 1915662043}
   - component: {fileID: 1915662042}
   - component: {fileID: 1915662041}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "Qu\u1EA3ng Ng\xE3i"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20613,7 +20532,7 @@ GameObject:
   - component: {fileID: 1916002571}
   - component: {fileID: 1916002570}
   - component: {fileID: 1916002569}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "S\u01A1n La"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20980,7 +20899,7 @@ GameObject:
   - component: {fileID: 1946722160}
   - component: {fileID: 1946722159}
   - component: {fileID: 1946722158}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "\u0110\u1EAFk L\u1EAFk"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21228,7 +21147,7 @@ GameObject:
   - component: {fileID: 1984290213}
   - component: {fileID: 1984290212}
   - component: {fileID: 1984290211}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "H\xE0 Nam"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21482,7 +21401,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2016694475}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "T\xE2y Nam B\u1ED9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21579,18 +21498,6 @@ MonoBehaviour:
   onSceneSwitch:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 385060596}
-        m_TargetAssemblyTypeName: FakeMG.Province.ProvinceController, Assembly-CSharp
-        m_MethodName: LowerAllProvince
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 399384941}
         m_TargetAssemblyTypeName: FakeMG.UI.InfoUIRaiser, Assembly-CSharp
         m_MethodName: LowerAll
@@ -21679,13 +21586,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026709650}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 80202016}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2054100038
 GameObject:
@@ -21700,7 +21607,7 @@ GameObject:
   - component: {fileID: 2054100042}
   - component: {fileID: 2054100041}
   - component: {fileID: 2054100040}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "B\xE0 R\u1ECBa - V\u0169ng T\xE0u"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21825,7 +21732,7 @@ GameObject:
   - component: {fileID: 2066562709}
   - component: {fileID: 2066562708}
   - component: {fileID: 2066562707}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "B\xECnh \u0110\u1ECBnh"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22010,7 +21917,7 @@ GameObject:
   - component: {fileID: 2078900938}
   - component: {fileID: 2078900937}
   - component: {fileID: 2078900936}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "\u0110\u1ED3ng Nai"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22213,7 +22120,7 @@ GameObject:
   - component: {fileID: 2091184705}
   - component: {fileID: 2091184704}
   - component: {fileID: 2091184703}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Long An
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22325,7 +22232,7 @@ GameObject:
   - component: {fileID: 2092300375}
   - component: {fileID: 2092300374}
   - component: {fileID: 2092300373}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "Cao B\u1EB1ng"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22437,7 +22344,7 @@ GameObject:
   - component: {fileID: 2094793634}
   - component: {fileID: 2094793633}
   - component: {fileID: 2094793632}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: "Tuy\xEAn Quang"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22595,9 +22502,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2413806693520163455, guid: 9c07fa5adeffb2c459585b5c9cacd7b0,
-    type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: b357f80275bc9eb46adb2186522a11bc, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -23405,8 +23311,8 @@ Transform:
   - {fileID: 518523817}
   - {fileID: 1835796860}
   - {fileID: 868734977}
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_Father: {fileID: 1800083123}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &549806428534065179
 MeshRenderer:

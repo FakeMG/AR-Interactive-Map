@@ -23,23 +23,20 @@ namespace FakeMG.Puzzle {
                 _objectsList.Add(child.gameObject);
             }
 
-            foreach (var child in _objectsList) {
-                Vector3 newPosition = GetRandomNonOverlappingPositionAround(parent);
-                child.transform.DOLocalMove(newPosition, animationDuration).SetDelay(delayTime).SetEase(Ease.InOutQuad)
-                    .OnComplete(() => {
-                        if (_objectsList.IndexOf(child) == _objectsList.Count - 1) {
-                            callback?.Invoke(_objectsList);
-                        }
-                    });
-            }
+            MoveObjectsToNewPositions();
         }
 
         public void ReRepositionObjectsRandomly() {
             _newPositions = new List<Vector3>();
 
             if (_objectsList == null) return;
+            
+            MoveObjectsToNewPositions();
+        }
+        
+        private void MoveObjectsToNewPositions() {
             foreach (var child in _objectsList) {
-                Vector3 newPosition = GetRandomNonOverlappingPositionAround(child.transform.parent);
+                Vector3 newPosition = GetRandomNonOverlappingLocalPosition();
                 child.transform.DOLocalMove(newPosition, animationDuration).SetDelay(delayTime).SetEase(Ease.InOutQuad)
                     .OnComplete(() => {
                         if (_objectsList.IndexOf(child) == _objectsList.Count - 1) {
@@ -49,14 +46,13 @@ namespace FakeMG.Puzzle {
             }
         }
 
-        private Vector3 GetRandomNonOverlappingPositionAround(Transform parent) {
+        private Vector3 GetRandomNonOverlappingLocalPosition() {
             Vector3 randomPosition;
             bool overlapDetected;
 
             do {
                 float angle = Random.Range(0f, 2f * Mathf.PI);
                 randomPosition = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle)) * Random.Range(minRange, maxRange);
-                randomPosition += parent.position;
 
                 overlapDetected = false;
                 foreach (var position in _newPositions) {

@@ -17,6 +17,7 @@ namespace FakeMG.Puzzle {
             if (!Enum.TryParse(value, out PuzzleState state)) {
                 throw new ArgumentOutOfRangeException(nameof(value), value, null);
             }
+            Debug.Log($"Switching to {state}");
             switch (state) {
                 case PuzzleState.Playing:
                     ToggleAllObjects(false);

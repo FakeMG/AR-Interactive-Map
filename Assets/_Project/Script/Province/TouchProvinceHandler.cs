@@ -58,7 +58,7 @@ namespace FakeMG.Province {
                 _preHitProvinceRaiser = hitProvinceRaiser;
 
                 // Raise province detail and info UI
-                provinceDetailRaiser.SetLocalPosForClosedProvinceDetail(hitProvinceRaiser.transform.position);
+                provinceDetailRaiser.SetPosForClosedProvinceDetail(hitProvinceRaiser.transform.position);
                 provinceDetailRaiser.RaiseProvinceInfo(hitProvinceRaiser.name);
                 infoUIRaiser.RaiseInfoUI("provinces", hitProvinceRaiser.name);
 
